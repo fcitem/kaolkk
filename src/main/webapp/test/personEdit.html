@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>个人资料保存</title>
+<script type="text/javascript" src="../jsLibrary/jQuery/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../test.js"></script>
+</head>
+<body>
+	
+	<form id="uploadForm" enctype="multipart/form-data">
+    	<input id="file" type="file" name="file" />
+    	<input type="hidden" id="userId" name="userId" value="4028818454b00bc50154b00d07480000" /><br/>
+	</form>
+	
+	
+	真实姓名<input type="text" id="username" name="username" value="" /><br/>
+	笔名<input type="text" id="pseudonym" name="pseudonym" value="" /><br/>
+	手机号码<input type="text" id="phone" name="phone" value="" /><br/>
+	个人简介<input type="text" id="introductionMyselef" name="introductionMyselef" value="" /><br/>
+	擅长领域<input type="text" id="speciality" name="speciality" value="" /><br/>
+	代表作品<input type="text" id="representativeWorks" name="representativeWorks" value="" /><br/>
+	<input type="button" value="commit" onclick="personCommit()" />
+	
+</body>
+</html>

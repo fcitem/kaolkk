@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="author" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<!-- Le fav and touch icons -->
+<!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/icon/apple-touch-icon-144-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/icon/apple-touch-icon-114-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/icon/apple-touch-icon-72-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" href="../img/icon/apple-touch-icon-57-precomposed.png">-->
+<!--     	<link rel="shortcut icon" href="../img/icon/favicon.png"> -->
+<link rel="shortcut icon" href="../favicon.ico">
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/officeAccount.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+          	<script src="../js/html5shiv.min.js"></script>
+          	<script src="../js/respond.min.js"></script>
+    	<![endif]-->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/validation.js"></script>
+<script type="text/javascript" src="../jsLibrary/jQuery/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../js/officialAccount.js"></script>
+<title>关于我们</title>
+</head>
+<body style="background-color: #293037;">
+
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+
+			<div id="navbar">
+				<div class="navbar-header">
+					<a href="../index.html" class="navbar-brand"><img
+						src="../img/system/logo.png" /></a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../index.html">书稿</a></li>
+					<li><a href="../app/publisher.html">出版人</a></li>
+					<li class="active"><a href="../app/officialAccount.html">公众号</a></li>
+					<li><a href="../app/about.html">关于我们</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+	<div class="bg-publisher">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					      <!-- Indicators -->
+					      <ol class="carousel-indicators">
+<!-- 					        <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
+<!-- 					        <li data-target="#myCarousel" data-slide-to="1"></li> -->
+<!-- 					        <li data-target="#myCarousel" data-slide-to="2"></li> -->
+					      </ol>
+					      <div id="publishHeader" class="carousel-inner" role="listbox">
+					        <div class="item active">
+					        	<img id="headerImge" style="top: 5px;width: 140px;height: 140px" src="" />
+					        	<div class="rightPart">
+					        		<div>
+					        			<div class="headerTitle">
+					        				<span id="headerTitle" style="font-size: 18px"></span>
+					        			</div>
+					        		</div>
+					        		<div id="headerTitleDesc" class="secondDesc">
+					        		
+					        		</div>
+					        	</div>
+					          <div class="container" style="height: 151px;">
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="bg-g">
+			<div class="container">
+				<div class="block-white">
+					
+					<div class="row text-center">
+						<div id="listAllContainer" class="officeAccountList">
+						
+<!-- 							<div class="officeAccountRow"> -->
+<!-- 								<a href="#"> -->
+<!-- 									<div class="officeAccountRowImg"> -->
+<!-- 										<img style="width: 80px;height: 80px" src="../img/system/internet.png" /> -->
+<!-- 									</div> -->
+<!-- 									<div class="officeAccountRowDesc"> -->
+<!-- 										<span class="officeAccountRowTitle"> 标题</span> -->
+<!-- 										<br/> -->
+<!-- 										<span class="officeAccountRowdesc2">标题描述</span> -->
+<!-- 									</div> -->
+<!-- 								</a> -->
+<!-- 							</div> -->
+						
+						</div>
+						
+						<div class="pageNumber" style="margin-top: 15px">
+							<input type="hidden" id="currentPage" value="1" />
+							<span><img id="pageUpIcon" onclick="nextOrPrePublisher(this,false)" class="pageiconUnavailable" style="transform: rotate(180deg);-webkit-transform: rotate(180deg);" src="../img/system/more.png" ></span>
+							<span id="pageUp" onclick="nextOrPrePublisher(this,false)" class="pageUnavailabile">上一页</span>
+							<span id="pageNext" onclick="nextOrPrePublisher(this,true)" class="pageAvailabile">下一页</span>
+							<span><img id="pageNextIcon" onclick="nextOrPrePublisher(this,true)" class="pageiconAvailable" src="../img/system/more.png" ></span>
+						</div>
+						
+					</div>
+					 
+					
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+	<script src="../js/custom.min.js"></script>
+	<script>
+			
+		</script>
+</body>
+</html>

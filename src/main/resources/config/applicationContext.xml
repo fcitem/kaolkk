@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	
+	<context:component-scan base-package="com.koalacan.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>        
+	</context:component-scan>
+	 
+	 <!-- 配置JPA注解支持-->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+	</bean>
+       
+    <!-- 配置实体管理器工厂 -->
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="klkk" />
+	
+	</bean>
+    
+    <!-- 配置基于注解的声明式事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+    <!-- 上传文件 -->   
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+       
+	<!-- 注解式事务 --> 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+   
+   <aop:config>  
+	<!-- 切入点 -->
+        <aop:pointcut expression="execution(* com.koalacan.*.*(..))" id="txPointcut"/>  
+       <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>  
+   </aop:config> 
+   
+   <!-- 配制具体方法及事务参数 -->  
+  <tx:advice id="txAdvice" transaction-manager="transactionManager">  
+       <tx:attributes>  
+          <tx:method name="*" propagation="REQUIRED" />  
+    </tx:attributes>  
+  </tx:advice> 
+   
+</beans>

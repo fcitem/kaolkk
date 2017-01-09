@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			
+    	<meta name="author" content="">
+    	<meta name="keywords" content="">
+		<meta name="description" content="">
+			
+		<!-- Le fav and touch icons -->
+    	<!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/icon/apple-touch-icon-144-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/icon/apple-touch-icon-114-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/icon/apple-touch-icon-72-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" href="../img/icon/apple-touch-icon-57-precomposed.png">-->
+<!--     	<link rel="shortcut icon" href="../img/icon/favicon.png"> -->
+		<link rel="shortcut icon" href="../favicon.ico">
+    	<link href="../css/style.css" rel="stylesheet">
+    	<link href="../css/publish.css" rel="stylesheet">
+    		
+    	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    	<!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+    
+    	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!--[if lt IE 9]>
+          	<script src="../js/html5shiv.min.js"></script>
+          	<script src="../js/respond.min.js"></script>
+    	<![endif]-->
+    	<script type="text/javascript" src="../js/common.js"></script>
+    	<script type="text/javascript" src="../js/validation.js"></script>
+    	<script type="text/javascript" src="../jsLibrary/jQuery/jquery-1.9.1.js"></script>
+    	<script type="text/javascript" src="../js/publish.js"></script>
+		<title></title>
+	</head>
+	<body style="background-color: #293037;">
+	<div id="greyDiv" class="window_login"> </div>
+		<nav class="navbar navbar-default navbar-static-top">
+	      	<div class="container">
+	        	
+		        <div id="navbar">
+		          	<div class="navbar-header">
+		            	<a href="../index.html" class="navbar-brand"><img src="../img/system/logo.png" /></a>
+		          	</div>
+		          
+		          	<ul class="nav navbar-nav navbar-right">
+			            <li class="active"><a href="../index.html">书稿</a></li>
+			            <li><a href="../app/publisher.html">出版人</a></li>
+			            <li><a href="#">考拉书系</a></li>
+			            <li><a href="#">公众号</a></li>
+		          	</ul>
+		          	
+		          	<div class="login-or-reg">
+		          		<div id="nologin" >
+		          			<span style="cursor: pointer;" onclick="openDialog('login')">登入</span>&nbsp;|&nbsp;<span style="cursor: pointer;" onclick="openDialog('register')">注册</span>
+		          		</div>
+		          		<div id="haslogin" style="display: none">
+		          			<span id="username" style="color: #00EE00;">Hi,name</span>&nbsp;<span style="cursor: pointer;color: #00EE00;" onclick="openPersonPage()">个人中心</span>&nbsp;|&nbsp;<span style="cursor: pointer;" onclick="exist()">退出</span>
+		          		</div>
+		          	</div>
+		        </div>
+		    </div>
+	    </nav>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3 text-center">
+					<div class="block-left">
+						<img id="userPicture" src="../img/system/circle.png" class="circle" />
+						
+						<div class="claire"><span id="userStatus">创作者</span>｜<span id="publishUsername">未登录</span></div>
+						
+						<hr />
+						
+						<ul>
+							<li>
+								<a href="/klkk/app/userPage.html">个人资料 </a> <img src="../img/system/Triangle.png" />
+							</li>
+							<li id="myProduction" class="active">
+								<a href="/klkk/app/publish.html">我的作品 </a> <img src="../img/system/Triangle.png" />
+							</li>
+							<li style="display:none" id="myIncome">
+								<a href="#">我的收人</a> <img src="../img/system/Triangle.png" />
+							</li>
+						</ul>
+						
+						<hr />
+					</div>
+				</div>
+				<div class="col-xs-9">
+					<div class="block-right">
+						<div class="form-horizondtal" style="width: 658px;">
+							<div id="publishSelectPage" style="margin-left: 40px;margin-top: 35px;">
+								<div style="margin-bottom: 10px;">
+									<img id="writePlan" src="../img/system/haveidea.png" />
+									<img id="writeting" style="margin-left: 177px" src="../img/system/writting.png" />
+									<img id="writeFinish" style="margin-left: 177px" src="../img/system/finish.png" />
+								</div>
+								
+								<div>
+									<div style="float: left;">
+										<img id="writePlanCyle" onclick="changePublishType('writePlanCyle')" class="cycle" src="../img/system/cycle.png" />
+										<div class="selectPlanToWriteingLine"></div>
+									</div>
+									<div style="float: left;">
+										<img id="writetingCycle" onclick="changePublishType('writetingCycle')" style="cursor: pointer;" src="../img/system/cycle.png" />
+										<div class="writeingToFinishLine"></div>
+									</div>
+									<div>
+										<img id="writeFinishCycle" onclick="changePublishType('writeFinishCycle')" style="cursor: pointer;" src="../img/system/cycle.png" />
+									</div>
+								
+								</div>
+								
+								<div class="writeLabel">
+									<div id="writePlanText" class="write">已有写作计划</div>
+									<div id="writtingText" class="writing">写作中</div>
+									<div id="writeFinshText" class="writed">书稿已完成</div>
+								</div>
+								
+								<div class="publissTip">
+									<div><label >欢迎你投递以上任何阶段的作品！ </label></div>
+								    <div id="selectTip" style="margin-top: 10px;display: none;"><label >请选择作品所处阶段 </label></div>
+								</div>
+								
+								<div class="form-group text-center">
+									<button id="readPbulish" action="writePlan" style="margin-bottom: 117px" onclick="addPublish()" class="btn btn-green">我要出书</button>
+								</div>
+								
+<!-- 								<div style="margin-top: 40px"> -->
+							</div>
+							
+							
+						</div>
+						
+						<div id="publishWritePlan" style="display: none;margin-left: 72px;">
+							<div style="margin-bottom: 10px;">
+									<img id="publishPlan" src="../img/system/haveidea-XS-green.png" />
+									<img id="publishWriteting" style="margin-left: 235px;width: 29px;height: 30px;" src="../img/system/writting.png" />
+									<img id="publishWriteFinish" style="margin-left: 235px" src="../img/system/finish-XS.png" />
+								</div>
+								
+								<div>
+									<div style="float: left;">
+										<img id="publishWritePlanCyle" class="cycleSmall" src="../img/system/cyclegreen.png" />
+										<div class="publishPlanToWriteingLine"></div>
+									</div>
+									<div style="float: left;">
+										<img id="publishWritetingCycle" class="writingSmall" src="../img/system/cycle2.png" />
+										<div class="publishWriteingToFinishLine"></div>
+									</div>
+									<div>
+										<img id="publishWriteFinishCycle" class="writingfinishSmall" src="../img/system/cycle2.png" />
+									</div>
+								
+								</div>
+								
+								<div class="publishWriteLabel">
+									<div id="publisWritePlanText" class="write">已有写作计划 </div>
+									<div id="publishWrittingText" class="writing">写作中</div>
+									<div id="publishWriteFinshText" class="writed">书稿已完成</div>
+								</div>
+								
+								<input type="hidden" id="id" name="id" />
+								
+								<div class="publishPictureContent">
+									<div class="publishPicture" >
+										<form id="uploadForm" enctype="multipart/form-data">
+									    	<input type="file" id="uploadPicture"  name="file" onchange="selectPitcure(this)" style="display: none" />
+											<input type="hidden" id="userId" name="userId" value="" />
+											<input type="hidden" id="imageId" name="imageId" value="" />
+										</form>
+										<img id="publishUploadPicture" style="cursor: pointer;width: 147.5px;height: 193.9px; border-radius: 20px;" onclick="onUploadPicture()" src="../img/system/defaultPicture.png" />
+									</div>
+									<div class="publishPictureRight">
+										<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 作品名称：</div>
+										<div class="publishTextContener"><input type="text" id="name" onblur="checkField('name',false,20,false)" oninput="checkField('name',false,20,false)" class="publishText" placeholder=""></div>
+										
+										<div style="float: left;width: 60%">
+											<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 作品类型：</div>
+											<div class="publishTextContener">
+												<select onblur="checkField('productionType',false,20,false)" class="publishSelect" id="productionType">
+													<option value="互联网及创业">互联网及创业</option>
+													<option value="励志">励志</option>
+													<option value="人文与社科">人文与社科</option>
+													<option value="金融">金融</option>
+													<option value="经管">经管</option>
+													<option value="传记">传记</option>
+													<option value="其他">其他</option>
+												</select>
+											</div>
+										</div>
+										<div style="margin-left: 65%;">
+											<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 全书字数 (单部预计)：</div>
+											<div>
+												<select onblur="checkField('totalWord',false,20,false)" style="width: 127%" id="totalWord">
+													<option value="10万以下">10万以下</option>
+													<option value="10万以上">10万以上</option>
+												</select>
+											</div>
+										</div>
+										
+										<div id="planCompleteTimeContainer" style="float: left;width: 60%">
+											<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 计划完成时间：</div>
+											<div class="publishTextContener">
+												<select onblur="checkField('year',false,5,false)" id="year" style="width: 36%"></select>
+												<select onblur="checkField('month',false,3,false)" id="month" style="width: 30%"></select>
+												<select onblur="checkField('week',false,3,false)" id="week" style="width: 30%"></select>
+											</div>
+										</div>
+										<div id="currentCompletePrecent" style="margin-left: 65%;">
+											<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 当前完成进度 (%)：</div>
+											<div><input onblur="checkField('completeProcess',false,5,false)" oninput="checkField('completeProcess',false,5,false)" id="completeProcess" style="width: 127%"></input></div>
+										</div>
+										
+										<div id="recommendMyselfContainer">
+											<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 我的一句话推荐：</div>
+											<div class="publishTextContener"><input type="text" id="recommendMyself" onblur="checkField('recommendMyself',false,100,false)" oninput="checkField('recommendMyself',false,100,false)" class="publishText" placeholder=""></div>
+										</div>
+										
+									</div>
+								</div>
+									
+								<div class="publishTextareaContent">
+									<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 目标读者：</div>
+									<div><textarea id="targerReader" onblur="checkField('targerReader',false,200,false)" onpropertychange="checkField('targerReader',false,200,false)" oninput="checkField('targerReader',false,200,false)" style="width: 107%;height: 75px;"></textarea></div>
+									
+									<div class="publishProductName"><img style="margin-top: -5px;" src="../img/system/Required.png" /> 内容简介：</div>
+									<div><textarea id="introductionContent" onblur="checkField('introductionContent',false,200,false)" onpropertychange="checkField('introductionContent',false,200,false)" oninput="checkField('introductionContent',false,200,false)" style="width: 107%;height: 75px;"></textarea></div>
+									
+									<div id="characterSetContainer">
+										<div class="publishProductName"> 人物角色设定：</div>
+										<div><textarea id="characterSet" onblur="checkField('characterSet',true,200,false)" onpropertychange="checkField('characterSet',true,200,false)" oninput="checkField('characterSet',true,200,false)" style="width: 107%;height: 75px;"></textarea></div>
+									</div>
+									
+									<div id="plotSetContainer">
+										<div class="publishProductName"> 情节设定：</div>
+										<div><textarea id="plotSet" onblur="checkField('plotSet',true,200,false)" onpropertychange="checkField('plotSet',true,200,false)" oninput="checkField('plotSet',true,200,false)" style="width: 107%;height: 75px;"></textarea></div>
+									</div>
+									
+									<div id="introductionAuthorComponent"  style="width:107%">
+										<div class="publishProductName">
+											<div style="float: left">
+												<img style="margin-top: -5px;" src="../img/system/Required.png" />
+												<span>作者简介：(展示给读者)</span>
+											</div>
+											<div onclick="getPersonInfo()" style="float: right;cursor: pointer;">
+												<img style="margin-top: -3px;" src="../img/system/Triangle-down.png" />
+												<span style="color: #64a81a;">直接使用我的个人资料</span>
+											</div>
+										</div>
+										<div><textarea onblur="checkField('introductionAuthor',false,200,false)" onpropertychange="checkField('introductionAuthor',false,200,false)" oninput="checkField('introductionAuthor',false,200,false)" id="introductionAuthor" style="width: 100%;height: 75px;"></textarea></div>
+									</div>
+									
+									<div id="bookCatalogueContainer">
+										<div class="publishProductName"> 图书目录：</div>
+										<div><textarea id="bookCatalogue" onblur="checkField('bookCatalogue',false,200,false)" onpropertychange="checkField('bookCatalogue',false,200,false)" oninput="checkField('introductionContent',false,200,false)"  style="width: 107%;height: 75px;"></textarea></div>
+									</div>
+									
+									<div id="sampleChapterContainer">
+										<div class="publishProductName"> 样章：</div>
+										<div><textarea id="sampleChapter" onblur="checkField('sampleChapter',false,200,false)" onpropertychange="checkField('sampleChapter',false,200,false)" oninput="checkField('sampleChapter',false,200,false)" style="width: 107%;height: 75px;"></textarea></div>
+									</div>
+									
+								</div>
+								<div class="bottomLine"></div>
+								
+								<div class="form-group text-center">
+									<button id="saveDraft" onclick="saveDraft()" class="btn btn-green">存草稿</button>
+									<button id="commit" onclick="commit()" disabled="disabled" class="btn btn-green">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+								</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+					
+		</div>
+		
+		<div id="dialog" class="dialogStyle">
+			
+			<div class="dialogMask" id="dialogMask"></div>
+  			<div class="maskContent" id="maskContent">
+  				<img src="../img/system/loading.gif" >
+  				<span id="maskText" class="maskText"></span>
+  			</div>
+  			
+			<div class="dialogClose">
+				<label id="prePage" onclick="returnPrePage()" class="prepage"><</label>
+				<img src="../img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeDialog()">
+			</div>
+			
+			<div id="firstPage" class="dialogContent">
+				<div class="dialogLabel">
+					<div id="registerTab" class="registerActive" onclick="changeTab('register')">注册</div>
+					<div id="loginTab" class="loginActive" onclick="changeTab('login')">登录</div>
+				</div>
+				
+				<div id="statusMessage" class="statusMessage"></div>
+				
+				<div class="inputContainer">
+					<input id="email" type="text" onblur="checkEmail(true,'email','emailError')" class="inputField" placeholder="邮箱">
+					<div id="emailError" class="emailError"></div>
+					<input id="password" onblur="checkPassword('password','passwordError')" type="password" class="inputField" placeholder="密码（不少于6位）">
+					<div id="passwordError" class="emailError"></div>
+					<div id="validationContainer">
+						<input type="text" id="randomCode" onblur="checkRandomCode('randomCode','randomCodeError')" style="float: left;" class="inputField" placeholder="验证码">
+						<div id="randomCodeError" class="randomCodeError"></div>
+						<div class="validationCode" onclick="changeImg('imgObj')">
+							<img id="imgObj" alt="验证码" src="/klkk/random/code" />
+						</div>
+					</div>
+				</div>
+				
+				<div id="protoalContainer" class="protoalContainer">
+					<div class="Oval-44" onclick="checkProtocal(this)">
+						<div id="isReadProtocal" class="Shape">&radic;</div>
+					</div>
+					<div class="protoal">
+						已阅读并接受<span style="color: #417505">《考拉看看协议》</span>条款
+					</div>
+				</div>
+				
+				<div id="forgetPassword" class="forgetPassword">
+					<span class="forgetPasswordText" onclick="openDialogThirdPage()">忘记密码？</span>
+				</div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" action="register" onclick="submit(this)">注册考拉看看</button>
+				</div>
+				
+			</div>
+			
+			<div id="dialogSecondePage" class="secondpage">
+				<div class="secondPageTitle">验证邮箱</div>
+				<div id="secondTipPage" class="secondTip"></div>
+				<div class="secondResendCode">
+					<input id="emailcode" type="text" onblur="checkEmailCode('emailcode','emailcodeStatusMessage')" class="emailcode" placeholder="邮箱收到的6位数验证码">
+					<button id="resendCode" class="resendCode" onclick="resendEmailCode(null,'emailcodeStatusMessage','resendCode')">重发验证码</button>
+				</div>
+				
+				<div id="emailcodeStatusMessage" class="emailcodeStatusMessage"></div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 70px;" onclick="valideEmailCode(this)">进入考拉看看</button>
+				</div>
+				
+				<div class="secondpageSkip" onclick="skipValidation()">
+					跳过，下次再说
+				</div>
+			</div>
+			
+			<div id="dialogThirdPage" class="secondpage">
+				<div class="secondPageTitle">找回密码</div>
+				<div class="secondTip">验证码将会发送到你的注册邮箱</div>
+				<div id="thirdPageStatusMessage" class="statusMessage"></div>
+				<div class="inputContainer" style="margin-top: 20px;margin-left: 40px;">
+					<input id="thirdPageEmail" type="text" onblur="checkEmail(false,'thirdPageEmail','thridPageEmailError')" class="inputField" placeholder="注册邮箱">
+					<div id="thridPageEmailError" class="emailError" style="margin-right: 15px"></div>
+					<div id="thirdPageValidationContainer" style="margin-top: 20px;">
+						<input type="text" id="thirdPageRandomCode" onblur="checkRandomCode('thirdPageRandomCode','thirdPageRandomCodeError')" style="float: left;" class="inputField" placeholder="请输入右侧字母">
+						<div id="thirdPageRandomCodeError" class="randomCodeError" style="margin-right: 85px"></div>
+						<div class="validationCode" style="margin-right: 10px" onclick="changeImg('thirdPageimgObj')">
+							<img id="thirdPageimgObj" alt="验证码" src="/klkk/random/code" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 80px;margin-top: 30px" onclick="findPassword(this)">立即找回</button>
+				</div>
+			</div>
+			
+			<div id="dialogFourPage" class="secondpage">
+				<div class="secondPageTitle">重设密码</div>
+				<div class="secondTip">验证码已发送到<span id="hasRegisterEmail"></span></div>
+				<div id="fourPageStatusMessage" class="statusMessage"></div>
+				<div class="inputContainer" style="margin-top: 20px;margin-left: 40px;">
+					
+					<input id="fourPagePassword" onblur="checkPassword('fourPagePassword','fourPagePasswordError')" type="password" class="inputField" placeholder="新密码（不少于6位）">
+					<div id="fourPagePasswordError" class="emailError" style="margin-right: 15px"></div>
+					
+					<div>
+						<input id="fourPageEmailcode" onblur="checkEmailCode('fourPageEmailcode','fourPageEmailcodeError')" type="text" class="inputField" style="width: 160px;" placeholder="邮箱收到的6位数验证码">
+						<button id="FourPageresendCode" class="resendCode" onclick="resendEmailCode('hasRegisterEmail','fourPageEmailcodeError','FourPageresendCode')">重发验证码</button>
+					</div>
+					<div id="fourPageEmailcodeError" class="emailError" style="margin-right: 15px;margin-top: -80px"></div>
+					
+				</div>
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 80px;margin-top: 30px" onclick="resetPassword(this)">重设密码</button>
+				</div>
+			</div>
+
+		</div>
+		
+		<div style="margin-bottom: 40px" class="admin-footer">&copy; copyright 考拉看看2016</div>
+		
+		<script src="../js/custom.min.js"></script>
+		
+		
+		<div id="messageWindow" class="messageWindow">
+			<div class="dialogClose">
+				<img src="../img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeMessageWindow('messageWindow')">
+			</div>
+			<div class="messageMiddle">
+				<div class="messageIconDiv">
+					<img id="messageIcon" class="messageIcon" src="../img/system/success.ico">
+				</div>
+				<div class="messageQuestionTextDiv">
+					<span id="messageText" class="messageText">保存成功！</span>
+				</div>
+			</div>
+			<div class="messageButtonContainer">
+				<button class="messageButton"  onclick="closeMessageWindow('messageWindow')">确定</button>
+			</div>
+		</div>
+		
+		<div id="messageQuestionWindow" class="messageQuestionWindow">
+			<div class="dialogClose">
+				<img src="../img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeMessageWindow('messageQuestionWindow')">
+			</div>
+			
+			<div class="messageQuestionMiddle">
+				<div class="messageIconDiv">
+					<img id="messageQuestionIcon" class="messageIcon" src="../img/system/icon-question.gif">
+				</div>
+				<div class="messageQuestionTextDiv">
+					<span id="messageQuestionText" class="messageQuestionText">提交信息?</span>
+				</div>
+			</div>
+			
+			<div class="messageButtonContainer">
+				<button id="messageQuestionOk" class="messageButton"  onclick="closeMessageWindow('messageQuestionWindow','messageQuestionOk')">确定</button>
+				<button class="messageButton"  onclick="closeMessageWindow('messageQuestionWindow')">取消</button>
+			</div>
+		</div>
+		
+		<div class="publishMaskContent" id="publishMaskContent">
+			<img style="margin-left: 5px;" src="/klkk/img/system/loading.gif" >
+			<span id="publishMaskText" class="maskText"></span>
+		</div>
+		
+	</body>
+</html>

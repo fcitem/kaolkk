@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			
+    	<meta name="author" content="">
+    	<meta name="keywords" content="">
+		<meta name="description" content="">
+			
+		<!-- Le fav and touch icons -->
+    	<!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icon/apple-touch-icon-144-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icon/apple-touch-icon-114-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icon/apple-touch-icon-72-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" href="img/icon/apple-touch-icon-57-precomposed.png">-->
+<!--     	<link rel="shortcut icon" href="img/icon/favicon.ico"> -->
+    	<link rel="shortcut icon" href="favicon.ico">
+
+    	<link href="css/style.css" rel="stylesheet">
+    		
+    	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    	<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    
+    	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!--[if lt IE 9]>
+          	<script src="js/html5shiv.min.js"></script>
+          	<script src="js/respond.min.js"></script>
+    	<![endif]-->
+    	
+    	<script type="text/javascript" src="js/common.js"></script>
+    	<script type="text/javascript" src="js/validation.js"></script>
+    	<script type="text/javascript" src="jsLibrary/jQuery/jquery-1.9.1.js"></script>
+    	<script type="text/javascript" src="js/index.js"></script>
+		<title>首页</title>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default navbar-static-top">
+	      	<div class="container">
+	        	
+		        <div id="navbar">
+		          	<div class="navbar-header">
+		            	<a href="index.html" class="navbar-brand"><img src="img/system/logo.png" /></a>
+		          	</div>
+		          
+		          	<ul class="nav navbar-nav navbar-right">
+			            <li class="active"><a href="index.html">书稿</a></li>
+			            <li><a href="app/publisher.html">出版人</a></li>
+			            <li><a href="app/officialAccount.html">公众号</a></li>
+			            <li><a href="app/about.html">关于我们</a></li>
+		          	</ul>
+		          	
+		          	<div id="loginDiv" style="display: none" class="login-or-reg">
+		          		<div id="nologin" >
+		          			<span style="cursor: pointer;" onclick="openDialog('login')">登入</span>&nbsp;|&nbsp;<span style="cursor: pointer;" onclick="openDialog('register')">注册</span>
+		          		</div>
+		          		<div id="haslogin" style="display: none">
+		          			<span id="username" style="color: #00EE00;">Hi,name</span>&nbsp;<span style="cursor: pointer;color: #00EE00;" onclick="openPersonPage()">个人中心</span>&nbsp;|&nbsp;<span style="cursor: pointer;" onclick="exist()">退出</span>
+		          		</div>
+		          	</div>
+		          	
+		        </div>
+		    </div>
+	    </nav>
+		<div class="bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					      <!-- Indicators -->
+					      <ol class="carousel-indicators">
+					        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					        <li data-target="#myCarousel" data-slide-to="1"></li>
+					        <li data-target="#myCarousel" data-slide-to="2"></li>
+					      </ol>
+					      <div class="carousel-inner" id="indexFocus" role="listbox">
+					        <div class="item active">
+					        	<img src="" />
+					          <div class="container">
+					            <div class="carousel-caption">
+					              	<h3></h3>
+					              	<p></p>
+					            </div>
+					          </div>
+					        </div>
+<!-- 					        <div class="item"> -->
+<!-- 					        	<img src="img/product/book3.png" /> -->
+<!-- 					          	<div class="container"> -->
+<!-- 					            	<div class="carousel-caption"> -->
+<!-- 					            		<h3>橙味人生：《诸时健传奇》</h3> -->
+<!-- 					              		<p>褚时健一生从事过四种职业，为什么种种都能成功？褚时健为什么会从“反右”干部变为“最后的右派”？褚时健为什么不愿从政而从商？褚时健如何将“红塔”扭亏为盈，成为国家税利第一大户？褚时健因何“折翼”滇南，又遭遇了怎样的人生大变故？</p> -->
+<!-- 					            	</div> -->
+<!-- 					          	</div> -->
+<!-- 					        </div> -->
+<!-- 					        <div class="item"> -->
+<!-- 					        	<img src="img/product/book3.png" /> -->
+<!-- 					          	<div class="container"> -->
+<!-- 					            	<div class="carousel-caption"> -->
+<!-- 					            		<h3>橙味人生：《诸时健传奇》</h3> -->
+<!-- 					              		<p>褚时健一生从事过四种职业，为什么种种都能成功？褚时健为什么会从“反右”干部变为“最后的右派”？褚时健为什么不愿从政而从商？褚时健如何将“红塔”扭亏为盈，成为国家税利第一大户？褚时健因何“折翼”滇南，又遭遇了怎样的人生大变故？</p> -->
+<!-- 					            	</div> -->
+<!-- 					          	</div> -->
+<!-- 					        </div> -->
+					      </div>
+					      <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					        <span class="sr-only">Previous</span>
+					      </a>
+					      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					        <span class="sr-only">Next</span>
+					      </a>-->
+					    </div><!-- /.carousel -->
+						
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="indexPageUnpublish" class="block-w clearfix">
+							<div class="col-xs-6">
+								<a href="#"><img src=""  /></a>
+								<span>
+									<span class="title"></span>
+									<p>
+										<span>
+											编辑推荐：
+										</span><br />
+										<br />
+									</p>
+									
+									<p>
+										<span>
+											作者简介：
+										</span><br />
+										
+									</p>
+								</span>
+							</div>
+<!-- 							<div class="col-xs-6"> -->
+<!-- 								<a href="app/publishList.html"><img src="img/product/book8.png"  /></a> -->
+<!-- 								<span> -->
+<!-- 									<span class="title">金融的本质</span> -->
+<!-- 									<p> -->
+<!-- 										<span> -->
+<!-- 											编辑推荐： -->
+<!-- 										</span><br /> -->
+<!-- 										褚时健一生从事过四种职业<br /> -->
+<!-- 										褚时健一生从事过四种职业<br /> -->
+<!-- 										褚时健一生从事过四种职业 -->
+<!-- 									</p> -->
+									
+<!-- 									<p> -->
+<!-- 										<span> -->
+<!-- 											作者简介： -->
+<!-- 										</span><br /> -->
+<!-- 										褚时健一生从事过四种职业 -->
+<!-- 									</p> -->
+<!-- 								</span> -->
+<!-- 							</div> -->
+<!-- 							<div><a href="app/publishList.html" class="indexToPublishList">查看更多 <img src="img/system/more.png"/></a></div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="bg-g">
+			<div class="container">
+				<div class="block-white">
+					<div class="title" style="font-family: STHeitiSC;font-weight: 600;padding-bottom: 25px">只需三步，出版一本属于你的书</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="t"><i class="gray-oval">1</i><span>和我们取得联系</span></div>
+							<div class="content">
+								<p>点击绿色按钮提交手机号</p>
+								<p>让我们在考拉相遇</p>
+							</div>
+							
+						</div>
+						<div class="col-xs-4">
+							<div class="t"><i class="gray-oval">2</i><span>提交作品</span></div>
+							<div class="content">
+								<p>考拉编辑会主动与你沟通</p>
+								<p>了解你的期待和作品具体信息</p>
+							</div>
+							
+						</div>
+						<div class="col-xs-4">
+							<div class="t"><i class="gray-oval">3</i><span>包装与出版</span></div>
+							<div class="content">
+								<p>考拉将与你并肩加工作品</p>
+								<p>推荐至出版社并跟进出书事宜</p>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="row text-center">
+					 	<div class="btn-rectangle" style="height:43px;margin-top: 10px;margin-bottom: 26px" onclick="goToPublish()">
+					 		  我是创作人，我要出书
+					 	</div>
+					 	<hr />
+					 		
+				 		<div class="col-xs-12 text-left">
+				 			<div id="product">  
+							    <h4>他们在考拉成功出版：<span class="arrow"><a href="app/publishList.html?isPublish=true">查看更多 <img src="img/system/more.png"/></a></span></h4>  
+							    <span class="prev"></span>  
+							    <div id="content">  
+								    <div id="content_list" style="left: 0px;">  
+<!-- 									    <dl>   -->
+<!-- 									        <dt> -->
+<!-- 									        	<img onmouseover="showDetail(this)" onmouseout="hideDetail(this)" src="img/product/book4.png"/> -->
+<!-- 									        	<div class="publishMouse" id="owndid" display="false" onmouseover="showDiv(this,true)" onmouseout="showDiv(this,false)">这本书是</div> -->
+<!-- 									        </dt>   -->
+<!-- 									        <dd>某某某旅行记</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book5.png"/><div class="publishMouse">这本书是</div></dt>   -->
+<!-- 									        <dd>妞的成长手册</dd>   -->
+<!-- 									    </dl>   -->
+									    <dl>  
+									        <dt><img src=""/></dt>  
+									        <dd>请在后头设置显示信息</dd>  
+									    </dl>  
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book2.png"/></dt>   -->
+<!-- 									        <dd>怀孕圣经</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book6.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端1</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端1</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端1</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端1</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端1</dd>   -->
+<!-- 									    </dl>   -->
+<!-- 									    <dl>   -->
+<!-- 									        <dt><img src="img/product/book7.png"/></dt>   -->
+<!-- 									        <dd>数据采集移动终端1</dd>   -->
+<!-- 									    </dl>   -->
+								    </div>  
+							    </div>  
+							    <span class="next"></span>  
+							</div>  
+				 		</div>
+					</div>
+					 
+					
+				</div>
+			</div>
+		</div>
+		
+		<footer class="footer" style="background-color: #293037;">
+	      	<div class="container" style="top:30px;">
+	      		<div style="width: 180px;float: left;">
+	      			<img style="width: 139px;height: 85px;margin-left: 50px" alt="" src="img/system/footLogo.png">
+	      		</div>
+	      		<div class="rightBottom">
+	      			<div style="margin-left: 44px">
+	      				<span class="rightBottomSpan" style="width:20%">关于我们</span>
+	      				<span class="rightBottomSpan" style="width:50%">合作伙伴</span>
+	      				<span class="rightBottomSpan" style="width:25%">意见反馈</span>
+	      			</div>
+	      			<div class="footerLine"></div>
+	      			<div class="rightBottomThirdDiv">
+	      				<div>
+		      				<a href="app/about.html" class="rightbottomHref"><span style="width:20%" class="rightBottomSpan">平台介绍</span></a>
+		      				<span class="rightBottomSpan" style="width:50%">
+		      					<a href="http://www.publish.citic.com/" target="_blank" class="rightbottomHref"><span>中信出版社</span></a>｜
+		      					<a href="http://www.hzbook.com/ps/" target="_blank" class="rightbottomHref"><span>华章经管</span></a>｜
+		      					<a href="http://www.chinamediatime.com/" target="_blank" class="rightbottomHref"><span>北京时代华语</span></a>｜
+		      					<a href="http://www.lanshizi.com/" target="_blank" class="rightbottomHref"><span>蓝狮子财经</span></a>
+		      				</span>
+		      				<span class="rightBottomSpan" style="width:25%">kaolakankan@163.com</span>
+	      				</div>
+	      				<div style="margin-top: 17px">
+		      				<a href="app/about.html" class="rightbottomHref"><span class="rightBottomSpan" style="width:20%">商务合作</span></a>
+		      				<span class="rightBottomSpan" style="width:50%">
+		      					<a href="http://www1.chineseall.com/" target="_blank" class="rightbottomHref"><span>中文在线</span></a>｜
+		      					<a href="http://www.zhangyue.com/" target="_blank" class="rightbottomHref"><span>iReader</span></a>｜
+		      					<a href="https://www.amazon.cn/b?node=116087071" target="_blank" class="rightbottomHref"><span>KINDLE</span></a>｜
+		      					<a href="http://www.tyread.com/" target="_blank" class="rightbottomHref"><span>天翼阅读</span></a>
+		      				</span>
+		      				<span class="rightBottomSpan" style="width:25%">400-021-3677</span>
+	      				</div>
+	      			</div>
+<!-- 	      			<div class="rightBottomThirdDiv"> -->
+<!-- 	      				<span class="rightBottomSpan">平台介绍</span> -->
+<!-- 	      				<span class="rightBottomSpan">中信出版社｜华章经管｜北京时代华语｜蓝狮子财经</span> -->
+<!-- 	      				<span class="rightBottomSpan">kaolakankan@163.com</span> -->
+<!-- 	      			</div> -->
+	      		</div>
+<!-- 	      		<div class="row"> -->
+<!-- 	      			<div style="text-align: center;margin-top: 30px"> -->
+<!-- 	      			 	<img style="width: 59px;height: 28px;margin-right: 20px" src="img/system/email.png" alt="" /> -->
+<!-- 	      			 	<span style="font-family: Chalkduster;font-size: 15px;font-weight: 400;color: #b7c6d5;text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">kaolakankan@163.com</span> -->
+<!-- 	      			</div> -->
+<!-- 	      			<div class="col-xs-4" style="text-align: center;"> -->
+<!-- 	      				<img  src="img/system/email.png" alt="" /> -->
+<!-- 	      				<span style="font-family: Chalkduster;font-size: 13px;font-weight: 400;color: #b7c6d5;text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">kaolakankan@163.com</span> -->
+<!-- 	      				<p> -->
+<!-- 	      					合作伙伴---- <br /> -->
+<!-- 	      					某某某某某某某某某机构 <br /> -->
+<!-- 	      					某某某某某某某某某出版社 <br /> -->
+<!-- 	      					某某某某某某某某某某某某某公司 -->
+<!-- 	      				</p> -->
+<!-- 	      			</div> -->
+<!-- 	      			<div class="col-xs-4"> -->
+<!-- 	      				<p> -->
+<!-- 	      					联系我们----<br /> -->
+<!-- 	      					商务洽谈：028-88888888 <br /> -->
+<!-- 	      					客服电话：888888888888888<br /> -->
+<!-- 	      					Email：123456@qq.com -->
+<!-- 	      				</p> -->
+<!-- 	      			</div> -->
+<!-- 	      			<div class="col-xs-4"> -->
+<!-- 	      				<img src="img/system/qr-code.png" alt="" /> -->
+<!-- 	      			</div> -->
+<!-- 	      		</div> -->
+	      	</div>
+	      	<div class="blackContainer">
+	      		<span class="trything">@ Try Thing 创生文化</span>
+	      	</div>
+	    </footer>
+		<div id="greyDiv" class="window_login"> </div>
+		<div id="dialog" class="dialogStyle">
+			
+			<div class="dialogMask" id="dialogMask"></div>
+  			<div class="maskContent" id="maskContent">
+  				<img src="img/system/loading.gif" >
+  				<span id="maskText" class="maskText"></span>
+  			</div>
+  			
+			<div class="dialogClose">
+				<label id="prePage" onclick="returnPrePage()" class="prepage"><</label>
+				<img src="img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeDialog()">
+			</div>
+			
+			<div id="firstPage" class="dialogContent">
+				<div class="dialogLabel">
+					<div id="registerTab" class="registerActive" onclick="changeTab('register')">注册</div>
+					<div id="loginTab" class="loginActive" onclick="changeTab('login')">登录</div>
+				</div>
+				
+				<div id="statusMessage" class="statusMessage"></div>
+				
+				<div class="inputContainer">
+					<input id="email" type="text" onblur="checkEmail(true,'email','emailError')" class="inputField" placeholder="邮箱">
+					<div id="emailError" class="emailError"></div>
+					<input id="password" onblur="checkPassword('password','passwordError')" type="password" class="inputField" placeholder="密码（不少于6位）">
+					<div id="passwordError" class="emailError"></div>
+					<div id="validationContainer">
+						<input type="text" id="randomCode" onblur="checkRandomCode('randomCode','randomCodeError')" style="float: left;" class="inputField" placeholder="验证码">
+						<div id="randomCodeError" class="randomCodeError"></div>
+						<div class="validationCode" onclick="changeImg('imgObj')">
+							<img id="imgObj" alt="验证码" src="/klkk/random/code" />
+						</div>
+					</div>
+				</div>
+				
+				<div id="protoalContainer" class="protoalContainer">
+					<div class="Oval-44" onclick="checkProtocal(this)">
+						<div id="isReadProtocal" class="Shape">&radic;</div>
+					</div>
+					<div class="protoal">
+						已阅读并接受<span style="color: #417505">《考拉看看协议》</span>条款
+					</div>
+				</div>
+				
+				<div id="forgetPassword" class="forgetPassword">
+					<span class="forgetPasswordText" onclick="openDialogThirdPage()">忘记密码？</span>
+				</div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" action="register" onclick="submit(this)">注册考拉看看</button>
+				</div>
+				
+			</div>
+			
+			<div id="dialogSecondePage" class="secondpage">
+				<div class="secondPageTitle">验证邮箱</div>
+				<div id="secondTipPage" class="secondTip"></div>
+				<div class="secondResendCode">
+					<input id="emailcode" type="text" onblur="checkEmailCode('emailcode','emailcodeStatusMessage')" class="emailcode" placeholder="邮箱收到的6位数验证码">
+					<button id="resendCode" class="resendCode" onclick="resendEmailCode(null,'emailcodeStatusMessage','resendCode')">重发验证码</button>
+				</div>
+				
+				<div id="emailcodeStatusMessage" class="emailcodeStatusMessage"></div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 70px;" onclick="valideEmailCode(this)">进入考拉看看</button>
+				</div>
+				
+				<div class="secondpageSkip" onclick="skipValidation()">
+					跳过，下次再说
+				</div>
+			</div>
+			
+			<div id="dialogThirdPage" class="secondpage">
+				<div class="secondPageTitle">找回密码</div>
+				<div class="secondTip">验证码将会发送到你的注册邮箱</div>
+				<div id="thirdPageStatusMessage" class="statusMessage"></div>
+				<div class="inputContainer" style="margin-top: 20px;margin-left: 40px;">
+					<input id="thirdPageEmail" type="text" onblur="checkEmail(false,'thirdPageEmail','thridPageEmailError')" class="inputField" placeholder="注册邮箱">
+					<div id="thridPageEmailError" class="emailError" style="margin-right: 15px"></div>
+					<div id="thirdPageValidationContainer" style="margin-top: 20px;">
+						<input type="text" id="thirdPageRandomCode" onblur="checkRandomCode('thirdPageRandomCode','thirdPageRandomCodeError')" style="float: left;" class="inputField" placeholder="请输入右侧字母">
+						<div id="thirdPageRandomCodeError" class="randomCodeError" style="margin-right: 85px"></div>
+						<div class="validationCode" style="margin-right: 10px" onclick="changeImg('thirdPageimgObj')">
+							<img id="thirdPageimgObj" alt="验证码" src="/klkk/random/code" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 80px;margin-top: 30px" onclick="findPassword(this)">立即找回</button>
+				</div>
+			</div>
+			
+			<div id="dialogFourPage" class="secondpage">
+				<div class="secondPageTitle">重设密码</div>
+				<div class="secondTip">验证码已发送到<span id="hasRegisterEmail"></span></div>
+				<div id="fourPageStatusMessage" class="statusMessage"></div>
+				<div class="inputContainer" style="margin-top: 20px;margin-left: 40px;">
+					
+					<input id="fourPagePassword" onblur="checkPassword('fourPagePassword','fourPagePasswordError')" type="password" class="inputField" placeholder="新密码（不少于6位）">
+					<div id="fourPagePasswordError" class="emailError" style="margin-right: 15px"></div>
+					
+					<div>
+						<input id="fourPageEmailcode" onblur="checkEmailCode('fourPageEmailcode','fourPageEmailcodeError')" type="text" class="inputField" style="width: 160px;" placeholder="邮箱收到的6位数验证码">
+						<button id="FourPageresendCode" class="resendCode" onclick="resendEmailCode('hasRegisterEmail','fourPageEmailcodeError','FourPageresendCode')">重发验证码</button>
+					</div>
+					<div id="fourPageEmailcodeError" class="emailError" style="margin-right: 15px;margin-top: -80px"></div>
+					
+				</div>
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 80px;margin-top: 30px" onclick="resetPassword(this)">重设密码</button>
+				</div>
+			</div>
+
+		</div>
+		
+		<div id="changePhoneWindow" class="messageWindow" style="width: 442px;height: 285px;z-index:1003;">
+			<div class="dialogClose">
+				<img src="img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeDialog()">
+			</div>
+			
+			<div class="topiciTipWindow" style="text-align: center;">
+				请留下你的联系电话，考拉工作人员稍后会联系你
+			</div>
+			<div class="inputContainer" style="margin: 29px 44.2px 96px 25px;">
+				<input id="topicWindowPhone" type="text" onblur="checkTopicPhone('topicWindowPhone','topicWindowPhoneError')" class="emailcode" style="width:300px;margin-top: 10px;margin-left: 26px " placeholder="请输入你的手机号（及时获得反馈信息）">
+				<div id="topicWindowPhoneError" class="emailError" style="margin-top: -45px;margin-right: 77px;"></div>
+			</div>
+			
+			<div class="form-group text-center" style="margin-top: 28px">
+				<button class="btn btn-green" onclick="addPhone('1')">提&nbsp;&nbsp;交</button>
+			</div>
+		</div>
+		
+		<div id="messageWindow" class="messageWindow">
+			<div class="dialogClose">
+				<img src="/klkk/img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeMessageWindow('messageWindow')">
+			</div>
+			<div class="messageMiddle">
+				<div class="messageIconDiv">
+					<img id="messageIcon" class="messageIcon" src="/klkk/img/system/success.ico">
+				</div>
+				<div class="messageQuestionTextDiv">
+					<span id="messageText" class="messageText">保存成功！</span>
+				</div>
+			</div>
+			<div class="messageButtonContainer">
+				<button class="messageButton"  onclick="closeMessageWindow('messageWindow')">确定</button>
+			</div>
+		</div>
+		
+		<div class="publishMaskContent" id="publishMaskContent">
+			<img style="margin-left: 5px;" src="/klkk/img/system/loading.gif" >
+			<span id="publishMaskText" class="maskText"></span>
+		</div>
+		
+		<script src="js/custom.min.js"></script>
+		<script>
+			
+		</script>
+	</body>
+</html>

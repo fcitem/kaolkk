@@ -1,0 +1,460 @@
+.publishDivActive {
+	width: 108px;
+	height: 24px;
+/* 	margin-left: 387px; */
+	margin-left: 437px;
+	background-color: #759b3b;
+	border: solid 1px #979797;
+	margin-top: -12px;
+	position: absolute;
+}
+
+.publishDivInactive {
+	width: 108px;
+	height: 24px;
+/* 	margin-left: 487px; */
+	margin-left: 545px;
+	border: solid 1px #979797;
+	margin-top: -12px;
+	position: absolute;
+	color: #4f5f6e;
+	font-size: 13px;
+	font-weight: 500;
+	opacity: 0.4;
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	cursor: pointer;
+	line-height: 24px;
+}
+
+.publishDroft {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 13px;
+	font-weight: 500;
+	color: white;
+}
+
+.publisherListPicture {
+	width: 130px;
+	height: 180px;
+	float: left;
+	margin-top: -15px;
+}
+
+.publishListDetail {
+	width: 230px;
+	margin-left: 173px;
+	text-align: left;
+	margin-top: 20px;
+}
+
+.publishListRightDetail {
+	width: 230px;
+	margin-left: 173px;
+	text-align: left;
+	margin-top: 30px;
+}
+
+.publisListname {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 16px;
+	font-weight: 800;
+	color: #4a4a4a;
+	width: 230px;
+}
+
+.publishListType {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 13px;
+	font-weight: 300;
+	line-height: 1.77;
+	color: #417505;
+	/*   	margin-left: 40px; */
+	float: right;
+	width: 110px;
+	text-align: right;
+}
+
+.publishListiprovenance {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: #5a6d80;
+	margin-top: 5px;
+	height: 24px;
+	opacity: 0.6;
+}
+
+.publishListButton {
+	width: 108px;
+	height: 30px;
+	line-height: 30px;
+	color: #f2f6f7;
+	border-radius: 5px;
+	background-image: linear-gradient(to bottom, #82a83f 2%, #376127);
+	border: solid 1px #518839;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.publishHeart {
+	margin-right: 10px;
+	margin-left: 16px;
+}
+
+.publishListworks {
+	width: 208px;
+	height: 23px;
+	/*   	font-family: STHeitiSC; */
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 1.92;
+	color: #4a4a4a;
+	height: 23px;
+	margin-top: 3px;
+	opacity: 0.7;
+}
+
+.listrequire {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 1.92;
+	color: #417505;
+}
+
+.unPublishDivInactive {
+	width: 108px;
+	height: 24px;
+/* 	margin-left: 380px; */
+	margin-left: 437px;
+	border: solid 1px #979797;
+	margin-top: -12px;
+	position: absolute;
+	opacity: 0.4;
+	font-size: 13px;
+	font-weight: 500;
+	color: #4f5f6e;
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.unPublishDivActive {
+	width: 108px;
+	height: 24px;
+/* 	margin-left: 487px; */
+	margin-left: 545px;
+	border: solid 1px #979797;
+	margin-top: -12px;
+	position: absolute;
+	background-color: #759b3b;
+}
+
+.unpublisListname {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 18px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	color: #5d943a;
+}
+
+.unpublishThirdColume {
+	/* 	margin-left: 80px; */
+	/* 	margin-top: -160px; */
+	/* 	text-align: left; */
+	text-align: left;
+	padding-right: 10px;
+}
+
+.unpublishIntroductionAuthor {
+	/* 	width: 76px; */
+	height: 28px;
+	margin-top: 10px;
+	/* 	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC, */
+	/* 		STHeiti; */
+	font-family: STHeitiSC-Medium, "Microsoft YaHei",
+		sans-serif font-size : 14px;
+	font-weight: 500;
+	line-height: 1.64;
+	font-style: normal;
+	font-stretch: normal;
+	color: #417505;
+	font-stretch: normal;
+}
+
+.unpublishAuthorDetail {
+	/* 	width: 523px; */
+	height: 56px;
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 12px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.92;
+	color: #000000;
+}
+
+.publishListPageImage {
+	width: 130px;
+	height: 180px;
+}
+
+.unpublishRowSelect {
+	background-color: rgba(90, 130, 49, 0.1);
+	height: 235px;
+	padding-top: 27px;
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	cursor: pointer;
+}
+
+.unpublishRow {
+	height: 235px;
+	padding-top: 27px;
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+}
+
+.unpublisherListPictureDiv {
+	width: 130px;
+	height: 177px;
+	float: left;
+	margin-left: 40px;
+	/* 	border: solid 4px #759b3b; */
+}
+
+.unpublisherListPicture {
+	width: 130px;
+	height: 177px;
+}
+
+.unpublisherListPictureDivBorder {
+	border: solid 4px #759b3b;
+	width: 130px;
+	height: 177px;
+	margin-top: -176px;
+	position: relative;
+}
+
+.unpublishDetatil {
+	background-color: #759b3b;
+	height: 40px;
+	margin-top: -40px;
+	position: relative;
+	line-height: 40px;
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 13px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	color: #ffffff;
+}
+
+.unpublishListDetail {
+	width: 200px;
+	height: 200px;
+	margin-left: 80px;
+	text-align: left;
+	margin-top: 10px;
+	float: left;
+}
+
+.unpublishListiprovenance {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 12px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 30px;
+	color: #688f37;
+	margin-bottom: 25px;
+	height: 23px;
+	opacity: 0.8;
+}
+
+.unpublishType {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 13px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.77;
+	color: #417505;
+	opacity: 0.8;
+}
+
+.unpublishListworks {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 12px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 23px;
+	color: #000000;
+	height: 70px;
+	width: 180px;
+	margin-top: 5px;
+}
+
+.detailWindow {
+	display: none;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 60px;
+	right: 60px;
+	bottom: 0;
+	/* 	padding: 20px 40px; */
+	/* 	width: 300px; */
+	/* 	height: 633px; */
+	height: 80%;
+	/* 	padding: 16px; */
+	background-color: #f2f6f7;
+	z-index: 5003;
+	overflow: auto;
+	/* 	border-radius: 10px; */
+	box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+.leftDiv {
+	width: 197px;
+	height: 100%;
+	background-color: rgba(90, 109, 127, 0.1);
+	float: left;
+	/* 	clear: both; */
+	/* 	overflow: hidden; */
+}
+
+.leftDiv2 {
+	padding-left: 64px;
+	padding-right: 43px;
+	padding-top: 31px;
+	padding-bottom: 17px;
+}
+
+.detailLeftTitle {
+	font-family: STHeitiSC;
+	font-size: 18px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	color: #4a4a4a;
+	width: 90px;
+	height: 19px;
+	margin: 30px auto;
+}
+
+.detailPicture {
+	width: 130px;
+	height: 180px;
+	margin-left: -30px;
+	margin-bottom: 20px;
+}
+
+.detailList {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.64;
+	color: #5a6d80;
+	width: 90px;
+	height: 19px;
+	margin: 30px auto;
+	cursor: pointer;
+}
+
+.detailListActive {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.64;
+	color: #497b11;
+	width: 90px;
+	height: 19px;
+	margin: 30px auto;
+	cursor: pointer;
+}
+
+.rightDiv {
+	padding-left: 237px;
+	padding-top: 25px;
+	padding-right: 20px;
+	height: 100%;
+}
+
+.rightTitle {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 14px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.64;
+	color: #5a6d80;
+	width: 76px;
+	display: table-cell;
+}
+
+.detailDivPadding {
+	margin-top: 10px;
+}
+
+.rightTitleDesc {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 14px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.64;
+	display: table-cell;
+	color: #4a4a4a;
+}
+
+.rightDetail {
+	height: 88%;
+	overflow: auto;
+}
+
+.dialogImg {
+	margin-left: 10px;
+	margin-bottom: 5px;
+	display: none;
+	height: 10px;
+}
+
+.dialogImgActive {
+	margin-left: 10px;
+	margin-bottom: 5px;
+	height: 10px;
+}
+
+.test1 {
+	width: 100px;
+	display: table-cell;
+}
+
+.test2 {
+	display: table-cell;
+}

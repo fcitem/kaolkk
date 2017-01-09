@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			
+    	<meta name="author" content="">
+    	<meta name="keywords" content="">
+		<meta name="description" content="">
+			
+		<!-- Le fav and touch icons -->
+    	<!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icon/apple-touch-icon-144-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icon/apple-touch-icon-114-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icon/apple-touch-icon-72-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" href="img/icon/apple-touch-icon-57-precomposed.png">-->
+    	<link rel="shortcut icon" href="img/icon/favicon.png">
+
+    	<link href="css/style.css" rel="stylesheet">
+    		
+    	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    	<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    
+    	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!--[if lt IE 9]>
+          	<script src="js/html5shiv.min.js"></script>
+          	<script src="js/respond.min.js"></script>
+    	<![endif]-->
+    	
+		<title>首页</title>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default navbar-static-top">
+	      	<div class="container">
+	        	
+		        <div id="navbar">
+		          	<div class="navbar-header">
+		            	<a href="#" class="navbar-brand"><img src="img/system/logo.png" /></a>
+		          	</div>
+		          
+		          	<ul class="nav navbar-nav navbar-right">
+			            <li class="active"><a href="#">书稿</a></li>
+			            <li><a href="#">出版人</a></li>
+			            <li><a href="#">考拉书系</a></li>
+			            <li><a href="#">公众号</a></li>
+		          	</ul>
+		          	
+		          	<div class="login-or-reg">
+		          		<span>登录</span>&nbsp;|&nbsp;<span>注册</span>
+		          	</div>
+		        </div>
+		    </div>
+	    </nav>
+		<div class="bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					      <!-- Indicators -->
+					      <ol class="carousel-indicators">
+					        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					        <li data-target="#myCarousel" data-slide-to="1"></li>
+					        <li data-target="#myCarousel" data-slide-to="2"></li>
+					      </ol>
+					      <div class="carousel-inner" role="listbox">
+					        <div class="item active">
+					        	<img src="img/product/book3.png" />
+					          <div class="container">
+					            <div class="carousel-caption">
+					              	<h3>橙味人生：《诸时健传奇》</h3>
+					              	<p>褚时健一生从事过四种职业，为什么种种都能成功？褚时健为什么会从“反右”干部变为“最后的右派”？褚时健为什么不愿从政而从商？褚时健如何将“红塔”扭亏为盈，成为国家税利第一大户？褚时健因何“折翼”滇南，又遭遇了怎样的人生大变故？</p>
+					            </div>
+					          </div>
+					        </div>
+					        <div class="item">
+					        	<img src="img/product/book3.png" />
+					          	<div class="container">
+					            	<div class="carousel-caption">
+					            		<h3>橙味人生：《诸时健传奇》</h3>
+					              		<p>褚时健一生从事过四种职业，为什么种种都能成功？褚时健为什么会从“反右”干部变为“最后的右派”？褚时健为什么不愿从政而从商？褚时健如何将“红塔”扭亏为盈，成为国家税利第一大户？褚时健因何“折翼”滇南，又遭遇了怎样的人生大变故？</p>
+					            	</div>
+					          	</div>
+					        </div>
+					        <div class="item">
+					        	<img src="img/product/book3.png" />
+					          	<div class="container">
+					            	<div class="carousel-caption">
+					            		<h3>橙味人生：《诸时健传奇》</h3>
+					              		<p>褚时健一生从事过四种职业，为什么种种都能成功？褚时健为什么会从“反右”干部变为“最后的右派”？褚时健为什么不愿从政而从商？褚时健如何将“红塔”扭亏为盈，成为国家税利第一大户？褚时健因何“折翼”滇南，又遭遇了怎样的人生大变故？</p>
+					            	</div>
+					          	</div>
+					        </div>
+					      </div>
+					      <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					        <span class="sr-only">Previous</span>
+					      </a>
+					      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					        <span class="sr-only">Next</span>
+					      </a>-->
+					    </div><!-- /.carousel -->
+						
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="block-w clearfix">
+							<div class="col-xs-6">
+								<img src="img/product/book7.png"  />
+								<span>
+									<span class="title">大佬的父母</span>
+									<p>
+										<span>
+											编辑推荐：
+										</span><br />
+										褚时健一生从事过四种职业<br />
+										褚时健一生从事过四种职业<br />
+										褚时健一生从事过四种职业
+									</p>
+									
+									<p>
+										<span>
+											作者简介：
+										</span><br />
+										褚时健一生从事过四种职业
+									</p>
+								</span>
+							</div>
+							<div class="col-xs-6">
+								<img src="img/product/book8.png"  />
+								<span>
+									<span class="title">金融的本质</span>
+									<p>
+										<span>
+											编辑推荐：
+										</span><br />
+										褚时健一生从事过四种职业<br />
+										褚时健一生从事过四种职业<br />
+										褚时健一生从事过四种职业
+									</p>
+									
+									<p>
+										<span>
+											作者简介：
+										</span><br />
+										褚时健一生从事过四种职业
+									</p>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="bg-g">
+			<div class="container">
+				<div class="block-white">
+					<div class="title">只需三步，出版一本属于你的书</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="t"><i class="gray-oval">1</i><span>上传作品</span></div>
+							<div class="content">
+								<p>按要求填写概要、上传作品</p>
+								<p>第二小点描述</p>
+							</div>
+							
+						</div>
+						<div class="col-xs-4">
+							<div class="t"><i class="gray-oval">2</i><span>填写概要</span></div>
+							<div class="content">
+								<p>第一小点要求巴拉巴拉</p>
+								<p>第二小点描述</p>
+							</div>
+							
+						</div>
+						<div class="col-xs-4">
+							<div class="t"><i class="gray-oval">3</i><span>出版人约谈</span></div>
+							<div class="content">
+								<p>第一小点要求巴拉巴拉</p>
+								<p>第二小点描述</p>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="row text-center">
+						<div class="btn-rectangle">
+					 		  我是创作人，我要出书
+					 	</div>
+					 	
+					 	<hr />
+					 		
+				 		<div class="col-xs-12 text-left">
+				 			<div id="product">  
+							    <h4>他们在考拉成功出版：<span class="arrow"><a href="#">查看更多 <img src="img/system/more.png"/></a></span></h4>  
+							    <span class="prev"></span>  
+							    <div id="content">  
+							    <div id="content_list">  
+							    <dl>  
+							        <dt><img src="img/product/book4.png"/></dt>  
+							        <dd>某某某旅行记</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book5.png"/></dt>  
+							        <dd>妞的成长手册</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book1.png"/></dt>  
+							        <dd>诗与远方，且歌且行</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book2.png"/></dt>  
+							        <dd>怀孕圣经</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book6.png"/></dt>  
+							        <dd>数据采集移动终端1</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端1</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端1</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端1</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端1</dd>  
+							    </dl>  
+							    <dl>  
+							        <dt><img src="img/product/book7.png"/></dt>  
+							        <dd>数据采集移动终端1</dd>  
+							    </dl>  
+							    </div>  
+							    </div>  
+							    <span class="next"></span>  
+							</div>  
+				 		</div>
+					</div>
+					 
+					
+				</div>
+			</div>
+		</div>
+		
+		<footer class="footer">
+	      	<div class="container">
+	      		<div class="row">
+	      			<div class="col-xs-4">
+	      				<p>
+	      					合作伙伴---- <br />
+	      					某某某某某某某某某机构 <br />
+	      					某某某某某某某某某出版社 <br />
+	      					某某某某某某某某某某某某某公司
+	      				</p>
+	      			</div>
+	      			<div class="col-xs-4">
+	      				<p>
+	      					联系我们----<br />
+	      					商务洽谈：028-88888888 <br />
+	      					客服电话：888888888888888<br />
+	      					Email：123456@qq.com
+	      				</p>
+	      			</div>
+	      			<div class="col-xs-4">
+	      				<img src="img/system/qr-code.png" alt="" />
+	      			</div>
+	      		</div>
+	      	</div>
+	    </footer>
+		
+		<script src="js/custom.min.js"></script>
+		<script>
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>写作中</title>
+<script type="text/javascript" src="../jsLibrary/jQuery/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../test.js"></script>
+</head>
+<body>
+	
+	<form id="uploadForm" enctype="multipart/form-data">
+    	<input id="file" type="file" name="file" />
+    	<input type="hidden" id="userId" name="userId" value="4028818454b00bc50154b00d07480000" /><br/>
+	</form>
+	
+	
+	作品名称<input type="text" id="name" name="name" value="" /><br/>
+	作品类型<input type="text" id="productionType" name="productionType" value="" /><br/>
+	全书字数<input type="text" id="totalWord" name="totalWord" value="" /><br/>
+	计划完成时间:<br/>
+	<input type="text" id="completeYear" name="completeYear" value="2016年" />
+	<input type="text" id="completeMonth" name="completeMonth" value="4月" />
+	<input type="text" id="completeWeek" name="completeWeek" value="第二周" /><br/>
+	当前完成进度<input type="text" id="completeProcess" name="completeProcess" value="" /><br/>
+	目标读者<input type="text" id="targerReader" name="targerReader" value="" /><br/>
+	内容简介<input type="text" id="introductionContent" name="introductionContent" value="" /><br/>
+	作者简介<input type="text" id="introductionAuthor" name="introductionAuthor" value="" /><br/>
+	图书目录<input type="text" id="bookCatalogue" name="bookCatalogue" value="" /><br/>
+	样章<input type="text" id="sampleChapter" name="sampleChapter" value="" /><br/>
+	<input type="button" value="存草稿" onclick="saveDraft()" />
+	<input type="button" value="修改草稿" onclick="updateWriteCommit()" />
+	<input type="button" value="提交" onclick="writeCommit()" />
+	
+</body>
+</html>

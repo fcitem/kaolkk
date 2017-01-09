@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			
+    	<meta name="author" content="">
+    	<meta name="keywords" content="">
+		<meta name="description" content="">
+			
+		<!-- Le fav and touch icons -->
+    	<!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/icon/apple-touch-icon-144-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/icon/apple-touch-icon-114-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/icon/apple-touch-icon-72-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" href="../img/icon/apple-touch-icon-57-precomposed.png">-->
+<!--     	<link rel="shortcut icon" href="../img/icon/favicon.png"> -->
+		<link rel="shortcut icon" href="../favicon.ico">
+    	<link href="../css/style.css" rel="stylesheet">
+    		
+    	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    	<!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+    
+    	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!--[if lt IE 9]>
+          	<script src="../js/html5shiv.min.js"></script>
+          	<script src="../js/respond.min.js"></script>
+    	<![endif]-->
+	    	<script type="text/javascript" src="../js/common.js"></script>
+	    	<script type="text/javascript" src="../js/validation.js"></script>
+	    	<script type="text/javascript" src="../jsLibrary/jQuery/jquery-1.9.1.js"></script>
+	    	<script type="text/javascript" src="../js/myPublish.js"></script>
+		<title></title>
+	</head>
+	<body style="background-color: #293037;">
+		<div id="greyDiv" class="window_login"> </div>
+		<nav class="navbar navbar-default navbar-static-top">
+	      	<div class="container">
+	        	
+		        <div id="navbar">
+		          	<div class="navbar-header">
+		            	<a href="../index.html" class="navbar-brand"><img src="../img/system/logo.png" /></a>
+		          	</div>
+		          
+		          	<ul class="nav navbar-nav navbar-right">
+			            <li class="active"><a href="../index.html">书稿</a></li>
+			            <li><a href="../app/publisher.html">出版人</a></li>
+			            <li><a href="#">考拉书系</a></li>
+			            <li><a href="#">公众号</a></li>
+		          	</ul>
+		          	
+		          	<div class="login-or-reg">
+		          		<div id="nologin" >
+		          			<span style="cursor: pointer;" onclick="openDialog('login')">登入</span>&nbsp;|&nbsp;<span style="cursor: pointer;" onclick="openDialog('register')">注册</span>
+		          		</div>
+		          		<div id="haslogin" style="display: none">
+		          			<span id="username" style="color: #00EE00;">Hi,name</span>&nbsp;<span style="cursor: pointer;color: #00EE00;" onclick="openPersonPage()">个人中心</span>&nbsp;|&nbsp;<span style="cursor: pointer;" onclick="exist()">退出</span>
+		          		</div>
+		          	</div>
+		        </div>
+		    </div>
+	    </nav>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3 text-center">
+					<div class="block-left">
+						<img id="userPicture" src="../img/system/circle.png" class="circle" />
+						
+						<div class="claire"><span id="userStatus">出版人</span>｜<span id="mypublishUsername">未登录</span></div>
+						
+						<hr />
+						
+						<ul>
+							<li>
+								<a href="/klkk/app/userPage.html">个人资料 </a> <img src="../img/system/Triangle.png" />
+							</li>
+							<li class="active">
+								<a href="/klkk/app/myPublish.html">我发布的 </a> <img src="../img/system/Triangle.png" />
+							</li>
+						</ul>
+						
+						<hr />
+					</div>
+				</div>
+				<div class="col-xs-9">
+					<div class="block-right">
+						<div id="myPublishTitle" class="myPublishTitle" >暂无发布的选题，你可以提交一个新选题： </div>
+						<div class="form-horizontal" style="margin-top: 27px">
+							<div class="form-group">
+							    <div for="text4" class="col-sm-9">
+							   		<label id="topicNullInfo" class="topicNullInfo">
+							   			请在这里填入你的选题内容、方向等必要信息。<br/><br/>
+
+										小考拉收到后，将有专人与您联系。谢谢！  
+							   		</label>
+							   		<input type="hidden" id="topicId">
+							    	<textarea id="myTopic" onblur="checkField('myTopic',false,200,false)" oninput="checkTopicValid()" class="form-control" style="width: 684px;height: 285px;">
+							    	</textarea>
+							    </div>
+							</div>
+							
+							<div class="form-group text-center">
+								<button id="saveTopic" class="btn btn-green" onclick="saveTopic()">提交选题任务</button>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="dialog" class="dialogStyle">
+			
+			<div class="dialogMask" id="dialogMask"></div>
+  			<div class="maskContent" id="maskContent">
+  				<img src="../img/system/loading.gif" >
+  				<span id="maskText" class="maskText"></span>
+  			</div>
+  			
+			<div class="dialogClose">
+				<label id="prePage" onclick="returnPrePage()" class="prepage"><</label>
+				<img src="../img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeDialog()">
+			</div>
+			
+			<div id="firstPage" class="dialogContent">
+				<div class="dialogLabel">
+					<div id="registerTab" class="registerActive" onclick="changeTab('register')">注册</div>
+					<div id="loginTab" class="loginActive" onclick="changeTab('login')">登录</div>
+				</div>
+				
+				<div id="statusMessage" class="statusMessage"></div>
+				
+				<div class="inputContainer">
+					<input id="email" type="text" onblur="checkEmail(true,'email','emailError')" class="inputField" placeholder="邮箱">
+					<div id="emailError" class="emailError"></div>
+					<input id="password" onblur="checkPassword('password','passwordError')" type="password" class="inputField" placeholder="密码（不少于6位）">
+					<div id="passwordError" class="emailError"></div>
+					<div id="validationContainer">
+						<input type="text" id="randomCode" onblur="checkRandomCode('randomCode','randomCodeError')" style="float: left;" class="inputField" placeholder="验证码">
+						<div id="randomCodeError" class="randomCodeError"></div>
+						<div class="validationCode" onclick="changeImg('imgObj')">
+							<img id="imgObj" alt="验证码" src="/klkk/random/code" />
+						</div>
+					</div>
+				</div>
+				
+				<div id="protoalContainer" class="protoalContainer">
+					<div class="Oval-44" onclick="checkProtocal(this)">
+						<div id="isReadProtocal" class="Shape">&radic;</div>
+					</div>
+					<div class="protoal">
+						已阅读并接受<span style="color: #417505">《考拉看看协议》</span>条款
+					</div>
+				</div>
+				
+				<div id="forgetPassword" class="forgetPassword">
+					<span class="forgetPasswordText" onclick="openDialogThirdPage()">忘记密码？</span>
+				</div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" action="register" onclick="submit(this)">注册考拉看看</button>
+				</div>
+				
+			</div>
+			
+			<div id="dialogSecondePage" class="secondpage">
+				<div class="secondPageTitle">验证邮箱</div>
+				<div id="secondTipPage" class="secondTip"></div>
+				<div class="secondResendCode">
+					<input id="emailcode" type="text" onblur="checkEmailCode('emailcode','emailcodeStatusMessage')" class="emailcode" placeholder="邮箱收到的6位数验证码">
+					<button id="resendCode" class="resendCode" onclick="resendEmailCode(null,'emailcodeStatusMessage','resendCode')">重发验证码</button>
+				</div>
+				
+				<div id="emailcodeStatusMessage" class="emailcodeStatusMessage"></div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 70px;" onclick="valideEmailCode(this)">进入考拉看看</button>
+				</div>
+				
+				<div class="secondpageSkip" onclick="skipValidation()">
+					跳过，下次再说
+				</div>
+			</div>
+			
+			<div id="dialogThirdPage" class="secondpage">
+				<div class="secondPageTitle">找回密码</div>
+				<div class="secondTip">验证码将会发送到你的注册邮箱</div>
+				<div id="thirdPageStatusMessage" class="statusMessage"></div>
+				<div class="inputContainer" style="margin-top: 20px;margin-left: 40px;">
+					<input id="thirdPageEmail" type="text" onblur="checkEmail(false,'thirdPageEmail','thridPageEmailError')" class="inputField" placeholder="注册邮箱">
+					<div id="thridPageEmailError" class="emailError" style="margin-right: 15px"></div>
+					<div id="thirdPageValidationContainer" style="margin-top: 20px;">
+						<input type="text" id="thirdPageRandomCode" onblur="checkRandomCode('thirdPageRandomCode','thirdPageRandomCodeError')" style="float: left;" class="inputField" placeholder="请输入右侧字母">
+						<div id="thirdPageRandomCodeError" class="randomCodeError" style="margin-right: 85px"></div>
+						<div class="validationCode" style="margin-right: 10px" onclick="changeImg('thirdPageimgObj')">
+							<img id="thirdPageimgObj" alt="验证码" src="/klkk/random/code" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 80px;margin-top: 30px" onclick="findPassword(this)">立即找回</button>
+				</div>
+			</div>
+			
+			<div id="dialogFourPage" class="secondpage">
+				<div class="secondPageTitle">重设密码</div>
+				<div class="secondTip">验证码已发送到<span id="hasRegisterEmail"></span></div>
+				<div id="fourPageStatusMessage" class="statusMessage"></div>
+				<div class="inputContainer" style="margin-top: 20px;margin-left: 40px;">
+					
+					<input id="fourPagePassword" onblur="checkPassword('fourPagePassword','fourPagePasswordError')" type="password" class="inputField" placeholder="新密码（不少于6位）">
+					<div id="fourPagePasswordError" class="emailError" style="margin-right: 15px"></div>
+					
+					<div>
+						<input id="fourPageEmailcode" onblur="checkEmailCode('fourPageEmailcode','fourPageEmailcodeError')" type="text" class="inputField" style="width: 160px;" placeholder="邮箱收到的6位数验证码">
+						<button id="FourPageresendCode" class="resendCode" onclick="resendEmailCode('hasRegisterEmail','fourPageEmailcodeError','FourPageresendCode')">重发验证码</button>
+					</div>
+					<div id="fourPageEmailcodeError" class="emailError" style="margin-right: 15px;margin-top: -80px"></div>
+					
+				</div>
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 80px;margin-top: 30px" onclick="resetPassword(this)">重设密码</button>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="admin-footer">&copy; copyright 考拉看看2016</div>
+		
+		<script src="../js/custom.min.js"></script>
+		
+		<div id="messageWindow" class="messageWindow">
+			<div class="dialogClose">
+				<img src="../img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeMessageWindow('messageWindow')">
+			</div>
+			<div class="messageMiddle">
+				<div class="messageIconDiv">
+					<img id="messageIcon" class="messageIcon" src="../img/system/success.ico">
+				</div>
+				<div class="messageQuestionTextDiv">
+					<span id="messageText" class="messageText">保存成功！</span>
+				</div>
+			</div>
+			<div class="messageButtonContainer">
+				<button class="messageButton"  onclick="closeMessageWindow('messageWindow')">确定</button>
+			</div>
+		</div>
+		
+		<div class="publishMaskContent" id="publishMaskContent">
+			<img style="margin-left: 5px;" src="/klkk/img/system/loading.gif" >
+			<span id="publishMaskText" class="maskText"></span>
+		</div>
+		
+		<div id="changePhoneWindow" class="messageWindow" style="width: 442px;height: 285px;z-index:1003;">
+			
+			<div class="topIcon">
+				<img src="../img/system/checkboxmark.png" >
+			</div>
+			
+			<div class="topiciTipWindow">
+				选题已提交，稍后将有专人与您联系！
+			</div>
+			<div class="inputContainer" style="margin: 29px 44.2px 96px 25px;">
+				<input id="topicWindowPhone" type="text" onblur="checkTopicPhone('topicWindowPhone','topicWindowPhoneError')" class="emailcode" style="width:300px;margin-top: 10px;margin-left: 26px " placeholder="请输入你的手机号（及时获得反馈信息）">
+				<div id="topicWindowPhoneError" class="emailError" style="margin-top: -45px;margin-right: 144px;"></div>
+			</div>
+			
+			<div class="form-group text-center" style="margin-top: 28px">
+				<button class="btn btn-green" onclick="updatePhone(this)">好&nbsp;&nbsp;的</button>
+			</div>
+			<div class="secondpageSkip" onclick="closeTopicWindow()">
+					跳过，下次再说
+				</div>
+		</div>
+		<div id="validateEmailWindow" class="validateEmailWindow">
+			
+			<div class="dialogMask" id="validateEmailWindowMask"></div>
+  			<div class="maskContent" id="validateEmailWindowMaskContent">
+  				<img src="../img/system/loading.gif" >
+  				<span id="validateEmailmaskText" class="maskText"></span>
+  			</div>
+  			
+			<div class="dialogClose">
+				<img src="../img/system/remove.png" style="cursor: pointer;float: right;" onclick="closeValidateEmailWindow()">
+			</div>
+			
+			<div id="dialogSecondePage">
+				<div class="secondPageTitle">验证邮箱</div>
+				<div id="userPageEmailTip" class="secondTip"></div>
+				<div class="secondResendCode">
+					<input id="userPageEmailcode" type="text" onblur="checkEmailCode('userPageEmailcode','userPageemailcodeStatusMessage')" class="emailcode" placeholder="邮箱收到的6位数验证码">
+					<button id="userPageResendCode" class="resendCode" onclick="resendEmailCode(null,'userPageemailcodeStatusMessage','userPageResendCode')">重发验证码</button>
+				</div>
+				
+				<div id="userPageemailcodeStatusMessage" class="emailcodeStatusMessage"></div>
+				
+				<div class="form-group text-center">
+					<button id="loginOrRegister" class="btn btn-green" style="width: 240px;padding-left: 70px;" onclick="valideEmailNow(this)">立即验证</button>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

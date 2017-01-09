@@ -1,0 +1,60 @@
+.flowerdiv {
+	background: #293037 url(../img/system/flower.png) no-repeat center 0px;
+	background-size: 1280px 714px;
+}
+
+.middleDiv {
+	font-family: 'Microsoft YaHei', 'WenQuanYi Micro Hei', STHeitiSC,
+		STHeiti;
+	font-size: 20px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	color: #ffffff;
+	margin-left: 150px;
+	margin-right: 151px;
+	background-color: rgba(0, 0, 0, 0.8);
+	/*   opacity:0.8; */
+}
+
+.platform {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-left: 20px;
+}
+
+.lineoblique {
+	border: solid 1px #f2f2f2;
+	height: 24px;
+	width: 474px;
+	transform: skew(50deg);
+	border-bottom: none;
+	border-left: none;
+	margin-left: 15px;
+}
+
+.textbody {
+	margin-left: 20px;
+	font-family: Helvetica,Arial;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	color: #ffffff;
+/* 	letter-spacing: 2px; */
+	line-height: 26px;
+	margin-bottom: 40px;
+	margin-top: 25px;
+}
+
+.addressSpan {
+	float: right;
+	margin-top: -212px;
+	margin-right: 5px;
+}
+
+.pictureList {
+	width: 312px;
+	height: 208px;
+	margin: 10px auto;;
+}

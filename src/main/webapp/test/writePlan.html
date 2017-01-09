@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>已有写作计划</title>
+<script type="text/javascript" src="../jsLibrary/jQuery/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../test.js"></script>
+</head>
+<body>
+	
+	<form id="uploadForm" enctype="multipart/form-data">
+    	<input id="file" type="file" name="file" />
+    	<input type="hidden" id="userId" name="userId" value="4028818454b00bc50154b00d07480000" /><br/>
+	</form>
+	
+	
+	作品名称<input type="text" id="name" name="name" value="" /><br/>
+	作品类型<input type="text" id="productionType" name="productionType" value="" /><br/>
+	全书字数<input type="text" id="totalWord" name="totalWord" value="" /><br/>
+	计划完成时间:<br/>
+	<input type="text" id="completeYear" name="completeYear" value="2016年" />
+	<input type="text" id="completeMonth" name="completeMonth" value="4月" />
+	<input type="text" id="completeWeek" name="completeWeek" value="第二周" /><br/>
+	目标读者<input type="text" id="targerReader" name="targerReader" value="" /><br/>
+	内容简介<input type="text" id="introductionContent" name="introductionContent" value="" /><br/>
+	人物角色设定<input type="text" id="characterSet" name="characterSet" value="" /><br/>
+	情节设定<input type="text" id="plotSet" name="plotSet" value="" /><br/>
+	<input type="button" value="存草稿" onclick="writePlanSave()" />
+	<input type="button" value="修改草稿" onclick="updateWritePlanCommit()" />
+	<input type="button" value="提交" onclick="writePlanCommit()" />
+</body>
+</html>
