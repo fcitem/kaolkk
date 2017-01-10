@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koalacan.klkk.mapperDao.SectionMapper" >
+  <resultMap id="BaseResultMap" type="com.koalacan.klkk.model.Section" >
+    <result column="BOOK_ID" property="bookId" jdbcType="VARCHAR" />
+    <result column="BOOK_KEY" property="bookKey" jdbcType="VARCHAR" />
+    <result column="CHAPTER_ID" property="chapterId" jdbcType="VARCHAR" />
+    <result column="CHAPTER_KEY" property="chapterKey" jdbcType="VARCHAR" />
+    <result column="PRE_SECTION_ID" property="preSectionId" jdbcType="VARCHAR" />
+    <result column="PRE_SECTION_KEY" property="preSectionKey" jdbcType="VARCHAR" />
+    <result column="SECTION_KEY" property="sectionKey" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="PICS" property="pics" jdbcType="VARCHAR" />
+    <result column="PUBLISH_TIME" property="publishTime" jdbcType="INTEGER" />
+    <result column="NEED_PAY" property="needPay" jdbcType="INTEGER" />
+    <result column="PRICE" property="price" jdbcType="INTEGER" />
+    <result column="WORDCOUNT" property="wordcount" jdbcType="INTEGER" />
+    <result column="SECTION_ID" property="sectionId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.koalacan.klkk.model.Section" extends="BaseResultMap" >
+    <result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    BOOK_ID, BOOK_KEY, CHAPTER_ID, CHAPTER_KEY, PRE_SECTION_ID, PRE_SECTION_KEY, SECTION_KEY, 
+    TITLE, PICS, PUBLISH_TIME, NEED_PAY, PRICE, WORDCOUNT, SECTION_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    CONTENT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.koalacan.klkk.model.SectionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from section
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.koalacan.klkk.model.SectionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from section
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.koalacan.klkk.model.SectionExample" >
+    delete from section
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.koalacan.klkk.model.Section" >
+    insert into section (BOOK_ID, BOOK_KEY, CHAPTER_ID, 
+      CHAPTER_KEY, PRE_SECTION_ID, PRE_SECTION_KEY, 
+      SECTION_KEY, TITLE, PICS, 
+      PUBLISH_TIME, NEED_PAY, PRICE, 
+      WORDCOUNT, SECTION_ID, CONTENT
+      )
+    values (#{bookId,jdbcType=VARCHAR}, #{bookKey,jdbcType=VARCHAR}, #{chapterId,jdbcType=VARCHAR}, 
+      #{chapterKey,jdbcType=VARCHAR}, #{preSectionId,jdbcType=VARCHAR}, #{preSectionKey,jdbcType=VARCHAR}, 
+      #{sectionKey,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{pics,jdbcType=VARCHAR}, 
+      #{publishTime,jdbcType=INTEGER}, #{needPay,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, 
+      #{wordcount,jdbcType=INTEGER}, #{sectionId,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.koalacan.klkk.model.Section" >
+    insert into section
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        BOOK_ID,
+      </if>
+      <if test="bookKey != null" >
+        BOOK_KEY,
+      </if>
+      <if test="chapterId != null" >
+        CHAPTER_ID,
+      </if>
+      <if test="chapterKey != null" >
+        CHAPTER_KEY,
+      </if>
+      <if test="preSectionId != null" >
+        PRE_SECTION_ID,
+      </if>
+      <if test="preSectionKey != null" >
+        PRE_SECTION_KEY,
+      </if>
+      <if test="sectionKey != null" >
+        SECTION_KEY,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="pics != null" >
+        PICS,
+      </if>
+      <if test="publishTime != null" >
+        PUBLISH_TIME,
+      </if>
+      <if test="needPay != null" >
+        NEED_PAY,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="wordcount != null" >
+        WORDCOUNT,
+      </if>
+      <if test="sectionId != null" >
+        SECTION_ID,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookKey != null" >
+        #{bookKey,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterId != null" >
+        #{chapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterKey != null" >
+        #{chapterKey,jdbcType=VARCHAR},
+      </if>
+      <if test="preSectionId != null" >
+        #{preSectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="preSectionKey != null" >
+        #{preSectionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionKey != null" >
+        #{sectionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pics != null" >
+        #{pics,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=INTEGER},
+      </if>
+      <if test="needPay != null" >
+        #{needPay,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="wordcount != null" >
+        #{wordcount,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null" >
+        #{sectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.koalacan.klkk.model.SectionExample" resultType="java.lang.Integer" >
+    select count(*) from section
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update section
+    <set >
+      <if test="record.bookId != null" >
+        BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bookKey != null" >
+        BOOK_KEY = #{record.bookKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chapterId != null" >
+        CHAPTER_ID = #{record.chapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chapterKey != null" >
+        CHAPTER_KEY = #{record.chapterKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preSectionId != null" >
+        PRE_SECTION_ID = #{record.preSectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preSectionKey != null" >
+        PRE_SECTION_KEY = #{record.preSectionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionKey != null" >
+        SECTION_KEY = #{record.sectionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pics != null" >
+        PICS = #{record.pics,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishTime != null" >
+        PUBLISH_TIME = #{record.publishTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.needPay != null" >
+        NEED_PAY = #{record.needPay,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null" >
+        PRICE = #{record.price,jdbcType=INTEGER},
+      </if>
+      <if test="record.wordcount != null" >
+        WORDCOUNT = #{record.wordcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionId != null" >
+        SECTION_ID = #{record.sectionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        CONTENT = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update section
+    set BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      BOOK_KEY = #{record.bookKey,jdbcType=VARCHAR},
+      CHAPTER_ID = #{record.chapterId,jdbcType=VARCHAR},
+      CHAPTER_KEY = #{record.chapterKey,jdbcType=VARCHAR},
+      PRE_SECTION_ID = #{record.preSectionId,jdbcType=VARCHAR},
+      PRE_SECTION_KEY = #{record.preSectionKey,jdbcType=VARCHAR},
+      SECTION_KEY = #{record.sectionKey,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      PICS = #{record.pics,jdbcType=VARCHAR},
+      PUBLISH_TIME = #{record.publishTime,jdbcType=INTEGER},
+      NEED_PAY = #{record.needPay,jdbcType=INTEGER},
+      PRICE = #{record.price,jdbcType=INTEGER},
+      WORDCOUNT = #{record.wordcount,jdbcType=INTEGER},
+      SECTION_ID = #{record.sectionId,jdbcType=VARCHAR},
+      CONTENT = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update section
+    set BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      BOOK_KEY = #{record.bookKey,jdbcType=VARCHAR},
+      CHAPTER_ID = #{record.chapterId,jdbcType=VARCHAR},
+      CHAPTER_KEY = #{record.chapterKey,jdbcType=VARCHAR},
+      PRE_SECTION_ID = #{record.preSectionId,jdbcType=VARCHAR},
+      PRE_SECTION_KEY = #{record.preSectionKey,jdbcType=VARCHAR},
+      SECTION_KEY = #{record.sectionKey,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      PICS = #{record.pics,jdbcType=VARCHAR},
+      PUBLISH_TIME = #{record.publishTime,jdbcType=INTEGER},
+      NEED_PAY = #{record.needPay,jdbcType=INTEGER},
+      PRICE = #{record.price,jdbcType=INTEGER},
+      WORDCOUNT = #{record.wordcount,jdbcType=INTEGER},
+      SECTION_ID = #{record.sectionId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

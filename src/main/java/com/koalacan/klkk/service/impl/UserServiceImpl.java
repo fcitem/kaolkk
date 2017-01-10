@@ -25,7 +25,6 @@ import com.koalacan.klkk.dao.TopicDao;
 import com.koalacan.klkk.dao.UploadDao;
 import com.koalacan.klkk.dao.UserDao;
 import com.koalacan.klkk.model.Image;
-import com.koalacan.klkk.model.Production;
 import com.koalacan.klkk.model.ResponseMessage;
 import com.koalacan.klkk.model.SystemSet;
 import com.koalacan.klkk.model.Topic;

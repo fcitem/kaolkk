@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.koalacan.klkk.mapperDao.ChapterMapper" >
+  <resultMap id="BaseResultMap" type="com.koalacan.klkk.model.Chapter" >
+    <result column="BOOK_ID" property="bookId" jdbcType="VARCHAR" />
+    <result column="BOOK_KEY" property="bookKey" jdbcType="VARCHAR" />
+    <result column="PRE_CHAPTER_ID" property="preChapterId" jdbcType="VARCHAR" />
+    <result column="PRE_CHAPTER_KEY" property="preChapterKey" jdbcType="VARCHAR" />
+    <result column="CHAPTER_KEY" property="chapterKey" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="PICS" property="pics" jdbcType="VARCHAR" />
+    <result column="CHAPTER_ID" property="chapterId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.koalacan.klkk.model.Chapter" extends="BaseResultMap" >
+    <result column="DESCRIPTION" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    BOOK_ID, BOOK_KEY, PRE_CHAPTER_ID, PRE_CHAPTER_KEY, CHAPTER_KEY, TITLE, PICS, CHAPTER_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    DESCRIPTION
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.koalacan.klkk.model.ChapterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.koalacan.klkk.model.ChapterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.koalacan.klkk.model.ChapterExample" >
+    delete from chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.koalacan.klkk.model.Chapter" >
+    insert into chapter (BOOK_ID, BOOK_KEY, PRE_CHAPTER_ID, 
+      PRE_CHAPTER_KEY, CHAPTER_KEY, TITLE, 
+      PICS, CHAPTER_ID, DESCRIPTION
+      )
+    values (#{bookId,jdbcType=VARCHAR}, #{bookKey,jdbcType=VARCHAR}, #{preChapterId,jdbcType=VARCHAR}, 
+      #{preChapterKey,jdbcType=VARCHAR}, #{chapterKey,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{pics,jdbcType=VARCHAR}, #{chapterId,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.koalacan.klkk.model.Chapter" >
+    insert into chapter
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        BOOK_ID,
+      </if>
+      <if test="bookKey != null" >
+        BOOK_KEY,
+      </if>
+      <if test="preChapterId != null" >
+        PRE_CHAPTER_ID,
+      </if>
+      <if test="preChapterKey != null" >
+        PRE_CHAPTER_KEY,
+      </if>
+      <if test="chapterKey != null" >
+        CHAPTER_KEY,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="pics != null" >
+        PICS,
+      </if>
+      <if test="chapterId != null" >
+        CHAPTER_ID,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        #{bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="bookKey != null" >
+        #{bookKey,jdbcType=VARCHAR},
+      </if>
+      <if test="preChapterId != null" >
+        #{preChapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="preChapterKey != null" >
+        #{preChapterKey,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterKey != null" >
+        #{chapterKey,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pics != null" >
+        #{pics,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterId != null" >
+        #{chapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.koalacan.klkk.model.ChapterExample" resultType="java.lang.Integer" >
+    select count(*) from chapter
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update chapter
+    <set >
+      <if test="record.bookId != null" >
+        BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bookKey != null" >
+        BOOK_KEY = #{record.bookKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preChapterId != null" >
+        PRE_CHAPTER_ID = #{record.preChapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preChapterKey != null" >
+        PRE_CHAPTER_KEY = #{record.preChapterKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chapterKey != null" >
+        CHAPTER_KEY = #{record.chapterKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pics != null" >
+        PICS = #{record.pics,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chapterId != null" >
+        CHAPTER_ID = #{record.chapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update chapter
+    set BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      BOOK_KEY = #{record.bookKey,jdbcType=VARCHAR},
+      PRE_CHAPTER_ID = #{record.preChapterId,jdbcType=VARCHAR},
+      PRE_CHAPTER_KEY = #{record.preChapterKey,jdbcType=VARCHAR},
+      CHAPTER_KEY = #{record.chapterKey,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      PICS = #{record.pics,jdbcType=VARCHAR},
+      CHAPTER_ID = #{record.chapterId,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update chapter
+    set BOOK_ID = #{record.bookId,jdbcType=VARCHAR},
+      BOOK_KEY = #{record.bookKey,jdbcType=VARCHAR},
+      PRE_CHAPTER_ID = #{record.preChapterId,jdbcType=VARCHAR},
+      PRE_CHAPTER_KEY = #{record.preChapterKey,jdbcType=VARCHAR},
+      CHAPTER_KEY = #{record.chapterKey,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      PICS = #{record.pics,jdbcType=VARCHAR},
+      CHAPTER_ID = #{record.chapterId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -4,21 +4,19 @@
 package com.koalacan.klkk.controller;
 
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.koalacan.klkk.model.Book;
 import com.koalacan.klkk.model.Production;
 import com.koalacan.klkk.model.RequestParamEntity;
 import com.koalacan.klkk.model.ResponseMessage;
@@ -26,6 +24,7 @@ import com.koalacan.klkk.model.SystemSet;
 import com.koalacan.klkk.model.Topic;
 import com.koalacan.klkk.model.User;
 import com.koalacan.klkk.model.datamodel.UserData;
+import com.koalacan.klkk.service.BookService;
 import com.koalacan.klkk.service.ProductionService;
 import com.koalacan.klkk.service.UserService;
 
@@ -42,6 +41,9 @@ public class ManageController {
 	@Autowired
 	private ProductionService<Production> productionService;
 	
+	@Autowired
+	BookService bookService;
+	
 	//登录
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	@ResponseBody
@@ -57,6 +59,17 @@ public class ManageController {
 				rm.setMessage("你没有权限登录管理系统");
 			}
 		}
+		Book book=new Book();
+		book.setBookId("0123456");
+		book.setBookKey("111");
+		book.setAuthor("fc");
+		book.setCategoryId(2);
+		book.setPayType(2);
+		book.setTitle("sdfsdfdsf");
+		book.setBookType(2);
+		book.setBookType(3);
+		book.setPrice(32);
+		bookService.insertSelective(book);
 		pw.write(rm.toJson(rm));
 		pw.close();
 	}

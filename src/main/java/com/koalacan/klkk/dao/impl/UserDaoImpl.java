@@ -36,7 +36,6 @@ public class UserDaoImpl extends CommonDaoImp<User, Serializable> implements Use
 		StringBuffer sql = new StringBuffer("select user from User as user where user.isDelete=false ");
 		sql.append("and user.email='").append(user.getEmail()).append("' ");
 		sql.append("and user.password='").append(user.getPassword()).append("'");
-
 		return super.getEntityManager().createQuery(sql.toString()).getResultList();
 	}
 
