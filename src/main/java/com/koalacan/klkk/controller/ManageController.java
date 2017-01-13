@@ -59,17 +59,17 @@ public class ManageController {
 				rm.setMessage("你没有权限登录管理系统");
 			}
 		}
-		Book book=new Book();
-		book.setBookId("0123456");
-		book.setBookKey("111");
-		book.setAuthor("fc");
-		book.setCategoryId(2);
-		book.setPayType(2);
-		book.setTitle("sdfsdfdsf");
-		book.setBookType(2);
-		book.setBookType(3);
-		book.setPrice(32);
-		bookService.insertSelective(book);
+//		Book book=new Book();
+//		book.setBookId("0123456");
+//		book.setBookKey("111");
+//		book.setAuthor("fc");
+//		book.setCategoryId(2);
+//		book.setPayType(2);
+//		book.setTitle("sdfsdfdsf");
+//		book.setBookType(2);
+//		book.setBookType(3);
+//		book.setPrice(32);
+//		bookService.insertSelective(book);
 		pw.write(rm.toJson(rm));
 		pw.close();
 	}

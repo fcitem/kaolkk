@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/API.json=UTF-8
+encoding//src/main/webapp/manager/data/students.json=UTF-8
+encoding//src/main/webapp/manager/data/updateStudents.json=UTF-8
 encoding/<project>=UTF-8

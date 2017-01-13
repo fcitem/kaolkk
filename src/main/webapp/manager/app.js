@@ -2,7 +2,7 @@ Ext.application({
 	requires : [ 'Ext.container.Viewport' ],
 	name : 'KLKK',
 	appFolder : 'app',
-	controllers : [ 'MainController','UserController','ProductController','SystemSetController','TopicController',
+	controllers : [ 'MainController','UserController','ProductController','SystemSetController','TopicController','WyApiController',
 	                'OfficialAccountController'],
 	launch : function() {
 		console.log("launch triggered!");

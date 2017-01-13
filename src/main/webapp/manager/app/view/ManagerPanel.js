@@ -329,6 +329,15 @@ Ext.define('KLKK.view.ManagerPanel', {
 						tabId: 'systemSetFormPanel',
 						leaf : true
 					}]
+				},{
+					text : "网易云阅读",
+					expanded : true,
+					children : [ {
+						text : "上传书籍",
+						cls:"leafNode",
+						tabId: 'wyAPI',
+						leaf : true
+					}]
 				}]
 			}
 		} ]
@@ -369,6 +378,11 @@ Ext.define('KLKK.view.ManagerPanel', {
 			xtype : 'systemsetformpanel',
 			title : '系统设置',
 			itemId : 'systemSetFormPanel'
+		},{
+			xtype:'wyAPI',
+			title:'网易云阅读',
+			group : 'product',
+			itemId:'wyAPI'
 		} ]
 	}, {
 		title : '图片信息',
