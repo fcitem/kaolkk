@@ -219,13 +219,13 @@ Ext.define('KLKK.view.IndexFocus', {
 			tbar : [ {
 				text : "编辑",
 				iconCls : 'btn-edit',
-				disabled: true,
+				disabled: false,
 				itemId: 'indexFocusEdit',
 				action : 'edit'
 			}, {
 				text : "取消首页焦点显示",
 				iconCls : 'btn-del',
-				disabled: true,
+				disabled: false,
 				itemId: 'cancleIndexFocusDisplay',
 				action : 'del'
 			},{

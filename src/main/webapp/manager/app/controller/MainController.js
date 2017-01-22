@@ -2,8 +2,8 @@ Ext.define('KLKK.controller.MainController', {
 	extend : 'Ext.app.Controller',
 	views : [ 'MainPanel', 'LoginWin',
 			'ManagerPanel','IndexFocus','AllProductView','ProductEditWin','IndexFocusEditWin',
-			'TopicFocusView'],
-	stores : [ 'ProductStore','IndexFocusStore','TopicFocusStore','userStore.UserStoreNoPage' ],
+			'TopicFocusView','wyAPI'],
+	stores : [ 'ProductStore','IndexFocusStore','TopicFocusStore','userStore.UserStoreNoPage','WyApiStore' ],
 	models : [  ],
 	refs : [//相当于一个映射,这样就可以在控制层方便的通过geter取得相应的对象了
 		{
@@ -89,8 +89,22 @@ Ext.define('KLKK.controller.MainController', {
 			'managerpanel #topicFocusEdit': {
 				click: me.topicFocusEdit
 			},
-			'managerpanel #cancleTopicFocusDisplay': {
-				click: me.cancleTopicFocusDisplay
+			'managerpanel #wyAPI' :{
+				select : me.wyApiSelect,
+				deselect: me.wyApiSelect,
+				itemdblclick: me.wyApiSelectdbClcik
+			},
+			'managerpanel #wyAPI #bookadd': {
+				click: me.wyApiAddBook
+			},
+			'managerpanel #wyAPI #bookedit': {
+				click: me.wyApiSelectEdit
+			},
+			'managerpanel #wyAPI #bookupdate': {
+				click: me.wyApiSelectEdit
+			},
+			'managerpanel #wyAPI #bookdelete': {
+				click: me.canclewyApiSelectDisplay
 			},
 			'managerpanel #treePanel':{
 				itemclick: me.treePanelClick
@@ -734,8 +748,170 @@ Ext.define('KLKK.controller.MainController', {
 				}
 			});
 		}
-	}
-	
+	},
+	wyApiSelect: function(self, record, index, eOpts){
+		var me = this;
+		var selection = self.getSelection();
+		var indexFocusEdit = me.getManagerpanel().down("#indexFocusEdit");
+		var cancleIndexFocusDisplay = me.getManagerpanel().down("#cancleIndexFocusDisplay");
+		if (!indexFocusEdit || !cancleIndexFocusDisplay){
+			return;
+		}
+		if(selection.length == 0){
+			indexFocusEdit.disable();
+			cancleIndexFocusDisplay.disable();
+		} else if (selection.length == 1){
+			indexFocusEdit.enable();
+			cancleIndexFocusDisplay.enable();
+		} else if (selection.length > 1){
+			indexFocusEdit.disable();
+			cancleIndexFocusDisplay.enable();
+		}
+		if (me.getManagerpanel().down("#indexFocus").getSelectionModel().isSelected(record)){
+			var path = "无图片";
+			if (record.get("image.name")){
+				path = '/klkk/image/upload/' + record.get("image.name");
+			}
+			me.getManagerpanel().down("#picturePath").setSrc(path);
+			me.getManagerpanel().down("#pictureText").setText(path);
+		} else {
+			me.getManagerpanel().down("#picturePath").setSrc("");
+			me.getManagerpanel().down("#pictureText").setText("");
+		}
+	},
+	wyApiSelectdbClcik: function(self, record, item, index, e, eOpts){
+		self.select(record);
+		this.indexFocusEdit();
+	},
+	wyApiAddBook: function (self, e, eOpts){
+		var me = this;
+		var gridSelection = me.getManagerpanel().down("#wyAPI").getSelectionModel().getSelection();
+		debugger;
+		var winAdd = new Ext.Window({
+			title : '上传新书',
+			width : 650,
+			height : 350,
+			layout : 'fit',
+			closeAction : 'hide',
+			maximizable : false,
+			resizable : false,
+			border : false,
+			autoScroll : true,
+			html : '<iframe id="iframeAdd" name="ifr1" scrolling="yes" width="100%" height="100%"  src="/klkk/page/wyApi/addbook.html"/>',
+			/*iconCls : 'CssIconForm',*/
+			/*buttons : aButtonAdd*/
+		});
+		winAdd.show();
+	},
+	wyApiSelectEdit: function (self, e, eOpts){
+		var me = this;
+		var gridSelection = me.getManagerpanel().down("#wyAPI").getSelectionModel().getSelection();
+		if (gridSelection && gridSelection.length == 1){
+			me.getIndexfocuseditwin().down("#indexFocusEditForm").getForm().reset();
+			var path = "无图片";
+			if (gridSelection[0].get("image.name")){
+				path = '/klkk/image/upload/' + gridSelection[0].get("image.name");
+			}
+			me.getIndexfocuseditwin().down("#wyAPI").setSrc(path);
+			me.getIndexfocuseditwin().down("#indexFocusManagerId").setValue(me.user.id);
+			me.getIndexfocuseditwin().down("#indexFocusEditForm").loadRecord(gridSelection[0]);
+			me.getIndexfocuseditwin().show();
+		} else {
+			Ext.MessageBox.alert('提示', '请选择一条记录');
+		}
+	},
+	canclewyApiSelectDisplay: function (self, e, eOpts){
+		var me = this;
+		var gridSelection = me.getManagerpanel().down("#indexFocus").getSelectionModel().getSelection();
+		if (gridSelection.length == 0){
+			Ext.MessageBox.alert('提示', '请选择一条记录');
+		} else {
+			var ids = [];
+			Ext.Array.each(gridSelection, function(record, index, countriesItSelf) {
+				ids.push(record.get("id"));
+			});
+			if (ids.length == 0){
+				Ext.MessageBox.alert('提示', '不能正确获取到ID信息，请刷新页面重试');
+			} else {
+				Ext.Msg.confirm('', "确定要取消在主页显示的这些条目", function(btn) {
+					if (btn == 'yes') {
+						Ext.Ajax.request({
+							url : '/klkk/manage/product/focus',
+							method : 'DELETE',
+							contentType : "application/json",
+						    jsonData:{ids: ids},
+							waitMsg: '正在提交，请等待...',
+							success : function(response) {
+								var result = Ext.decode(response.responseText);
+								if (result.status){
+									me.getManagerpanel().down("#indexFocus").getStore().load();
+								} else {
+									Ext.MessageBox.alert('提示', result.message);
+								}
+							},
+							failure : function() {
+								Ext.MessageBox.alert('提示', '取消显示失败，可能是网络异常或服务器异常');
+							}
+						});
+					}
+				});
+			}
+			
+		}
+	},
+	wyApiSelectEditSave: function(self, e, eOpts){
+		var me = this;
+		var form = me.getIndexfocuseditwin().down("#indexFocusEditForm").getForm();
+		if (form.isValid()){
+			var value = form.getValues();
+			Ext.Msg.wait('正在处理数据，请稍候','提示');
+			Ext.Ajax.request({
+				url : '/klkk/manage/product/focus',
+				method : 'PUT',
+				contentType : "application/json",
+				jsonData: value,
+				success : function(response) {
+					Ext.Msg.hide();
+					var result = Ext.decode(response.responseText);
+					if (result.status){
+						me.getIndexfocuseditwin().close();
+						me.getManagerpanel().down("#indexFocus").getStore().load();
+					} else {
+						Ext.MessageBox.alert('提示', result.message);
+					}
+				},
+				failure : function() {
+					Ext.Msg.hide();
+					Ext.MessageBox.alert('提示', '删除失败，可能是网络异常或服务器异常');
+				}
+			});
+		}
+	},
+	wyApiSelectPictureUpload: function(self, value, eOpts){
+		var me = this;
+		if (value){
+			var form = me.getIndexfocuseditwin().down("#indexFocusEditForm").getForm();
+			if (form.isValid()){
+				form.submit({
+                    url: '/klkk/upload/image',
+                    waitMsg: '正在上传图片....',
+                    success: function(fp, response) {
+                    	var result = Ext.decode(response.response.responseText);
+                    	if (result.status){
+                    		me.getIndexfocuseditwin().down("#existImageId").setValue(result.dataModel.id);
+                    		var imagePath = "/klkk/image/upload/" + result.dataModel.name;
+                    		me.getIndexfocuseditwin().down("#indexFocusPicturePath").setSrc(imagePath);
+    					} else {
+    						Ext.MessageBox.alert('提示', result.message);
+    					}
+                    },
+                    failure : function() {
+    					Ext.MessageBox.alert('提示', '上传失败，可能是网络异常或服务器异常');
+    				}
+                });
+			}
+		}
+	},
 	
 	
 });

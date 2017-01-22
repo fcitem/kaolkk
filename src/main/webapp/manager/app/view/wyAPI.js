@@ -2,7 +2,7 @@ Ext.define('KLKK.view.wyAPI', {
 	extend : 'Ext.grid.Panel',
 	alias : 'widget.wyAPI',
 	loadMask: true,
-	store : 'IndexFocusStore',
+	store : 'WyApiStore',
 	selModel: Ext.create('Ext.selection.CheckboxModel',{mode:"SIMPLE"}),
 	columns : [
 			{
@@ -220,25 +220,25 @@ Ext.define('KLKK.view.wyAPI', {
 				text : "上传新书",
 				iconCls : 'btn-add',
 				disabled: false,
-				itemId: 'add',
+				itemId: 'bookadd',
 				action : 'add'
 			}, {
 				text : "修改书稿",
 				iconCls : 'btn-update',
 				disabled: false,
-				itemId: 'update',
+				itemId: 'bookupdate',
 				action : 'del'
 			}, {
 				text : "编辑信息",
 				iconCls : 'btn-edit',
 				disabled: false,
-				itemId: 'edit',
+				itemId: 'bookedit',
 				action : 'del'
 			}, {
 				text : "删除下架",
 				iconCls : 'btn-del',
 				disabled: false,
-				itemId: 'delete',
+				itemId: 'bookdelete',
 				action : 'del'
 			}]
 		});

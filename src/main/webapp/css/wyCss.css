@@ -1,0 +1,23 @@
+.wyCss{
+	margin-top: 10px;
+}
+.wyCss > label{
+	font-size: 18px;
+}
+.wyCss > input{
+	font-size: 20px;
+}
+.upload{
+	float: right;
+}
+.upload > #photoPrew{
+	width: 100px;
+	height: 195px;
+}
+.upload > div > label{
+	font-size: 18px;
+}
+.upload > div > input{
+	font-size: 18px;
+	width: 220px;
+}
