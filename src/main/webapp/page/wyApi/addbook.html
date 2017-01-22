@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <link href="/klkk/css/wyCss.css" rel="stylesheet">
 <script type="text/javascript" src="/klkk/jsLibrary/jQuery/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/klkk/jsLibrary/jQuery/jquery-form.js"></script>
 <script type="text/javascript" src="/klkk/js/wyApi/wyApi.js"></script>
 <title>考拉看看</title>
 </head>
@@ -11,11 +12,13 @@
  <div>
  <div class="upload">
        <div id="photoPrew" name="photoPrew">
+         <img alt="" src="/klkk/image/upload/book1.png">
        </div>
-       <div>
+       <form action="/klkk/book/addbook" enctype="multipart/form-data" name="file" id="file" method="post">
         <label>图片:</label>
         <input type="file" name="photo" id="photo"/>
-       </div>
+       </form>
+       <button id="uploadImg">点击上传</button>
     </div>
  	<div class="wyCss">
  		<label>作品名称</label>
