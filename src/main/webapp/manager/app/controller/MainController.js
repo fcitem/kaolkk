@@ -786,8 +786,12 @@ Ext.define('KLKK.controller.MainController', {
 	wyApiAddBook: function (self, e, eOpts){
 		var me = this;
 		var gridSelection = me.getManagerpanel().down("#wyAPI").getSelectionModel().getSelection();
+		var winAdd=null;
+		var abutton=[{xtype: "button",text : '下一步', handler:function(){ winAdd.hide();}},
+			   {xtype: "button",text : '取消', handler:function(){winAdd.hide();}}];
 		debugger;
-		var winAdd = new Ext.Window({
+		winAdd = Ext.create("Ext.window.Window",{
+	        id:'addid',
 			title : '上传新书',
 			width : 650,
 			height : 350,
@@ -797,12 +801,13 @@ Ext.define('KLKK.controller.MainController', {
 			resizable : false,
 			border : false,
 			autoScroll : true,
-			html : '<iframe id="iframeAdd" name="ifr1" scrolling="yes" width="100%" height="100%"  src="/klkk/page/wyApi/addbook.html"/>',
+			html : '<iframe id="iframeAdd" name="ifr1" scrolling="yes" width="100%" height="100%"  src="/klkk/page/wyApi/addbook.html"/>'
 			/*iconCls : 'CssIconForm',*/
-			/*buttons : aButtonAdd*/
+			/*buttons :abutton*/
 		});
 		winAdd.show();
 	},
+	
 	wyApiSelectEdit: function (self, e, eOpts){
 		var me = this;
 		var gridSelection = me.getManagerpanel().down("#wyAPI").getSelectionModel().getSelection();

@@ -20,7 +20,7 @@
 }
 .upload > form > input{
 	font-size: 15px;
-    width: 82%;
+    width: 81%;
 }
 .upload > button{
 	font-size: 20px;
@@ -28,5 +28,18 @@
 	width: 100%;
 }
 .upload > button:HOVER{
+	cursor: pointer;
+}
+.book-btn-list{
+	margin-left: 400px;
+	margin-top: 15px;
+}
+.book-btn-list > button{
+	font-size: 15px;
+	margin-right: 10px;
+	width:61px;
+}
+.book-btn-list > button:HOVER {
+	color:red;
 	cursor: pointer;
 }
