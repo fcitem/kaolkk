@@ -787,25 +787,47 @@ Ext.define('KLKK.controller.MainController', {
 		var me = this;
 		var gridSelection = me.getManagerpanel().down("#wyAPI").getSelectionModel().getSelection();
 		var winAdd=null;
-		var abutton=[{xtype: "button",text : '下一步', handler:function(){ winAdd.hide();}},
-			   {xtype: "button",text : '取消', handler:function(){winAdd.hide();}}];
+		var nextAdd=null;
+		var abutton=[{xtype: "button",text : '下一步', handler:function(){ winAdd.hide();nextAdd.show();}},
+			   {xtype: "button",text : '取消', handler:function(){winAdd.close();}}];
+		var abutton=[{xtype: "button",text : '保存', handler:function(){ winAdd.close();nextAdd.close();}},
+			   {xtype: "button",text : '取消', handler:function(){winAdd.close();nextAdd.close();}}];
 		debugger;
+		if(winAdd==null){
 		winAdd = Ext.create("Ext.window.Window",{
 	        id:'addid',
 			title : '上传新书',
 			width : 650,
 			height : 350,
 			layout : 'fit',
-			closeAction : 'hide',
+			/*closeAction : 'hide',*/
 			maximizable : false,
 			resizable : false,
 			border : false,
 			autoScroll : true,
-			html : '<iframe id="iframeAdd" name="ifr1" scrolling="yes" width="100%" height="100%"  src="/klkk/page/wyApi/addbook.html"/>'
-			/*iconCls : 'CssIconForm',*/
-			/*buttons :abutton*/
+			html : '<iframe id="iframeAdd" name="ifr1" scrolling="yes" width="100%" height="100%"  src="/klkk/page/wyApi/addbook.html"></iframe>',
+			iconCls : 'CssIconForm',
+			buttons :abutton
 		});
+		}
 		winAdd.show();
+		if(nextAdd==null){
+			nextAdd= Ext.create("Ext.window.Window",{
+		        id:'nextid',
+				title : '作品编辑',
+				width : 650,
+				height : 350,
+				layout : 'fit',
+				/*closeAction : 'hide',*/
+				maximizable : false,
+				resizable : false,
+				border : false,
+				autoScroll : true,
+				html : '<iframe id="iframeAdd" name="ifr1" scrolling="yes" width="100%" height="100%"  src="/klkk/page/wyApi/bookDesc.html"></iframe>',
+				iconCls : 'CssIconForm',
+				buttons :abutton
+			});
+			}
 	},
 	
 	wyApiSelectEdit: function (self, e, eOpts){
@@ -917,6 +939,4 @@ Ext.define('KLKK.controller.MainController', {
 			}
 		}
 	},
-	
-	
 });

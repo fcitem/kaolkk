@@ -36,4 +36,12 @@ $().ready(function(){
 			$("#file").ajaxSubmit(options);   //ajaxform提交表单文件
 		}
 	});
+	/*$("#next").click(function(){
+		debugger;
+		document.getElementById('addid').style.display='none';
+	})*/
 })
+function nextbt(){
+	/*debugger;
+	window.parent.Ext.getCmp('addid').close();*/
+}
